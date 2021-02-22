@@ -22,7 +22,7 @@
   display: flex;
 
 }
-p.solid { border-radius: 5%;;border-style: solid; width: 35vw; ;height: 45vw; margin-left: 15%; margin-top: 5%; background-color: black; }
+p.solid { border-radius: 5%;;border-style: solid; width: 35vw; ;height: 45vw; margin-left: 15%; margin-top: 5%; background-color: #C4C4C4 ; }
 body {font-family: Arial, Helvetica, sans-serif;}
 * {box-sizing: border-box}
 input[type=text]{
@@ -73,7 +73,12 @@ button:hover {
   margin-top: 10%;
 }
 .labai {
-  width: 80%;
-  margin-top: 30%;
-  margin-left: 10%;
+  width: 70%;
+  margin-top: 40%;
+  margin-left: 15%;
+}
+.bg {
+  background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
 }
