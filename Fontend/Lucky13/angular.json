@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "Lucky13"
+    }
+  },
+  "defaultProject": "Lucky13",
+  "cli": {
+    "analytics": "b5f56c71-a029-452f-a510-5031f4fdf900"
+  }
 }
