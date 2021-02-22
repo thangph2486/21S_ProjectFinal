@@ -3,6 +3,9 @@ const app = expres()
 const Database = require('./database')
 const bodyParser = require('body-parser')
 
+const http = require('http').createServer(app);
+const io = require('socket.io')(http);
+
 app.use(bodyParser.json());
 const db = new Database()
 
@@ -19,7 +22,7 @@ app.post('/items', (req, res) => {
     }
 })
 
-app.get('/', (req, res) => {
+app.get('/1', (req, res) => {
     try {
         res.status(200).send(
             db.getAll()
@@ -28,5 +31,16 @@ app.get('/', (req, res) => {
         console.log(error)
     }
 })
+
+
+app.get('/', (req, res) => {
+    res.sendFile(__dirname + '/index.html');
+});
+
+io.on('connection', (socket) => {
+    console.log('a user connected');
+});
+
+
 
 module.exports = app
