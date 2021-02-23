@@ -1,5 +1,6 @@
 
 <div>
+<div style="background-color: #f0f2f5;">
   <div class="row">
     <div class="column side">
       <p class="solid">
@@ -7,20 +8,22 @@
       </p>
     </div>
     <div class="column side">
+      <div>
         <div>
-            <img class="logo" src="../../../assets/logo-removebg-preview.png" alt="logo">
-          <div class="container">
-            <div style="margin-left: 20%;">
-                <input type="text" placeholder="Enter ID" name="email" required>
-                <input type="text" placeholder="Enter PW" name="PW" required>
-                <input type="text" placeholder="Enter Name" name="NAME" required>
-                <input type="text" placeholder="Enter Phone" name="PHONE" required>
-              <div>
-                <button type="submit" class="signupbtn">SIGN UP</button>
-              </div>
+          <img class="logo" src="../../../assets/logo-removebg-preview.png" alt="logo">
+        </div>
+        <div class="container">
+          <div style="margin-left: 20%;">
+            <input type="text" placeholder="Enter ID" name="email" required>
+            <input type="text" placeholder="Enter PW" name="PW" required>
+            <input type="text" placeholder="Enter Name" name="NAME" required>
+            <input type="text" placeholder="Enter Phone" name="PHONE" required>
+            <div class="clearfix">
+              <button (click)="changeColor()" type="submit" class="signupbtn">SIGN UP</button>
             </div>
           </div>
         </div>
+      </div>
     </div>
   </div>
 </div>
