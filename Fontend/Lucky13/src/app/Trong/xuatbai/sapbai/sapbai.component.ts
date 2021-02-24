@@ -16,13 +16,10 @@ export class SapbaiComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  isDisplay = false;
-  marginBot = 0
   click(card){
-    //this.isDisplay = !this.isDisplay;
+    // this.isDisplay = !this.isDisplay;
     const element = <HTMLElement> document.getElementsByClassName(card)[0];
     element.style.marginBottom.valueOf() == '25px' ? element.style.marginBottom = '0px': element.style.marginBottom = '25px'
-    console.log(element.style.marginBottom.valueOf());
     console.log(card);
   }
 }

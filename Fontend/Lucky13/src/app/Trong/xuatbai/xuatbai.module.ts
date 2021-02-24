@@ -12,6 +12,9 @@ import { ListComponent } from './list/list.component';
   imports: [
     CommonModule,
     XuatbaiRoutingModule
+  ],
+  exports: [
+    SapbaiComponent,
   ]
 })
 export class XuatbaiModule {
