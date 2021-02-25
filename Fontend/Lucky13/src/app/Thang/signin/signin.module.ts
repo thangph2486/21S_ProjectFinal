@@ -4,9 +4,8 @@ import { CommonModule } from '@angular/common';
 import { SigninRoutingModule } from './signin-routing.module';
 import { SigninComponent } from './signin.component';
 import { AngularFireModule } from '@angular/fire';
-import {AngularFireAuthModule} from '@angular/fire/auth'
+import { AngularFireAuthModule } from '@angular/fire/auth';
 import { environment } from 'src/environments/environment';
-
 
 @NgModule({
   declarations: [SigninComponent],
@@ -14,7 +13,7 @@ import { environment } from 'src/environments/environment';
     CommonModule,
     SigninRoutingModule,
     AngularFireModule.initializeApp(environment.firebase),
-    AngularFireAuthModule
-  ]
+    AngularFireAuthModule,
+  ],
 })
-export class SigninModule { }
+export class SigninModule {}
