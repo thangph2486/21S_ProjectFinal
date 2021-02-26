@@ -4,7 +4,6 @@ import { Routes, RouterModule } from '@angular/router';
 const routes: Routes = [
   //Trong
   { path: 'signup', loadChildren: () => import('./Trong/signup/signup.module').then(m => m.SignupModule) },
-  { path: 'xuatbai', loadChildren: () => import('./Trong/xuatbai/xuatbai.module').then(m => m.XuatbaiModule) },
 
   //Duc
   { path: 'ConnectSocket', loadChildren: () => import('./Duc/connect-socket/connect-socket.module').then(m => m.ConnectSocketModule) },
