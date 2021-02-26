@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SapbaiComponent } from './sapbai.component';
+import { ListcardComponent } from './listcard.component';
 
-describe('SapbaiComponent', () => {
-  let component: SapbaiComponent;
-  let fixture: ComponentFixture<SapbaiComponent>;
+describe('ListcardComponent', () => {
+  let component: ListcardComponent;
+  let fixture: ComponentFixture<ListcardComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ SapbaiComponent ]
+      declarations: [ ListcardComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(SapbaiComponent);
+    fixture = TestBed.createComponent(ListcardComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
