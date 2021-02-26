@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { CardDataService } from 'src/app/services/card-data.service';
-import { CardsComponent } from '../cards/cards.component';
 
 @Component({
   selector: 'app-listcard',
@@ -12,7 +11,7 @@ export class ListcardComponent implements OnInit {
   constructor(public cardService: CardDataService) {}
 
   ngOnInit(): void {
-    this.cardService.cards;
+
   }
 
   // arr = [0,1,2];
@@ -28,12 +27,32 @@ export class ListcardComponent implements OnInit {
   //     // let remove = this.cards.splice(i,1);
   //     console.log(this.cardService.cards.indexOf(card));
   //   }
-
   // }
-  click(card:string){
-    // this.isDisplay = !this.isDisplay;
-    const element = <HTMLElement> document.getElementsByClassName(card)[0];
-    element.style.marginBottom.valueOf() == '25px' ? element.style.marginBottom = '0px': element.style.marginBottom = '25px';
+
+  // click(card:string){
+  //   const element = <HTMLElement> document.getElementsByClassName(card)[0];
+  //   element.style.marginBottom.valueOf() == '25px' ? element.style.marginBottom = '0px': element.style.marginBottom = '25px';
+  //   console.log(element.style.marginBottom.valueOf());
+  //   console.log(card);
+  // }
+
+  removeCard(){
+   for(let i=0;i<this.cardService.temp.length;i++){
+     let index =this.cardService.cards.indexOf(this.cardService.temp[i]);
+      this.cardService.cards.splice(index,1);
+   this.cardService.tempXuatCard.push(this.cardService.temp[i]);
+   }
+
+      this.cardService.temp.splice(0);
+      console.log(this.cardService.temp);
+      console.log(this.cardService.tempXuatCard);
+     console.log(this.cardService.cards);
+
   }
 
+
+  clearCard(){
+      this.cardService.tempXuatCard.splice(0);
+      console.log(this.cardService.tempXuatCard);
+  }
 }
