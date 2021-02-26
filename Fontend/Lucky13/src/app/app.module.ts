@@ -4,8 +4,9 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
-import { FormsModule } from '@angular/forms';
 import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
+
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 const config: SocketIoConfig = { url: '192.168.31.188:3000', options: {} };
 
 import { HttpClientModule } from '@angular/common/http';
@@ -17,9 +18,10 @@ import { HttpClientModule } from '@angular/common/http';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule,
     SocketIoModule.forRoot(config),
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
