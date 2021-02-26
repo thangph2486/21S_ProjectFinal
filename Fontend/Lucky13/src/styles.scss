@@ -1,14 +1,12 @@
-@import url('https://fonts.googleapis.com/css?family=Exo+2:700');
-* {
-  margin: 0 auto;
-  padding: 0;
+/* You can add global styles to this file, and also import other style files */
+
+body,html {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  height: 100%;
 }
 
-body {
-  background: url("https://image.ibb.co/mJ9tLa/image.png");
-  background-color: #212121;
-  background-blend-mode: overlay;
-  background-position: center;
-  background-size: cover;
-  text-align: center;
+* {
+  box-sizing: border-box;
 }
+    
