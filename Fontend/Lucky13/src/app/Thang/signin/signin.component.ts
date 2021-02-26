@@ -1,3 +1,4 @@
+import { NodeWithI18n } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { Router, RouterLink } from '@angular/router';
@@ -14,6 +15,7 @@ export class SigninComponent  implements OnInit {
   constructor(
     private userService: UserService,
     public auth: AngularFireAuth,
+    // public player: LoginService
     // public router: Router,
   ) {}
   public user = null;
@@ -27,7 +29,9 @@ export class SigninComponent  implements OnInit {
           this.user.displayName,
           this.user.email,
           this.user.photoURL,
-          this.user.uid
+          this.user.uid,
+          this.user.phone,
+          this.user.password
         );
         alert('chuyen trang')
       }
@@ -37,12 +41,29 @@ export class SigninComponent  implements OnInit {
     }
   }
 
+  
+  ID: any;
+  PW: any;
+
+  async loginNow(){
+    try{
+      return await this.userService.login(
+        this.ID,
+        this.PW
+      ).then((res=>{
+        console.log(res)
+      }))
+    } catch (err){
+      console.log(err);
+    }
+  }
+
+
+
+
+
   ngOnInit(): void {
-    this.auth.authState.subscribe((auth) => {
-      if (this.user == null) {
-        this.user = auth;
-      }
-    });
+    // this.player.getUser(this.user)
   }
   ngOnDestroy(): void {
     this.user = null;

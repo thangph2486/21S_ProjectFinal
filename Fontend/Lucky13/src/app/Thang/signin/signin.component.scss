@@ -35,6 +35,17 @@ input[type=text]{
   border-radius: 15px;
   background: #C4C4C4;
 }
+
+input[type=password]{
+  width: 65%;
+  padding: 25px;
+  margin: 5px 0 10px 0;
+  display: inline-block;
+  border: none;
+  border-radius: 15px;
+  background: #C4C4C4;
+}
+
 input[type=text]:focus, input[type=password]:focus {
   background-color: #ddd;
   outline: none;

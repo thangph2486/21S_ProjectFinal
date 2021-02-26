@@ -14,12 +14,14 @@
         </div>
         <div class="container">
           <div style="margin-left: 20%;">
-            <input type="text" placeholder="Enter ID" name="email" required>
-            <input type="text" placeholder="Enter PW" name="PW" required>
-            <input type="text" placeholder="Enter Name" name="NAME" required>
-            <input type="text" placeholder="Enter Phone" name="PHONE" required>
+            <input type="text" placeholder="Enter ID" [(ngModel)]="ID" name="Id" required>
+            <input type="password" placeholder="Enter PW" [(ngModel)]="PW" name="PW" required>
+            <input type="text" placeholder="Enter Name" [(ngModel)]="name" name="NAME" required>
+            <input type="text" placeholder="Enter Phone" [(ngModel)]="phone" name="PHONE" required>
+            <input type="text" placeholder="Enter Email" [(ngModel)]="email" name="email" required>
+
             <div class="clearfix">
-              <button (click)="changeColor()" type="submit" class="signupbtn">SIGN UP</button>
+              <button (click)="login()" type="submit" class="signupbtn">SIGN UP</button>
             </div>
           </div>
         </div>
