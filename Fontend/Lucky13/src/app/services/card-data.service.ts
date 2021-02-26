@@ -7,19 +7,17 @@ import { Card } from '../models/card.model'
 export class CardDataService {
 
   constructor() { }
-
-  cards=['Át♥', '02♥', '03♥', '04♥', '05♥', '06♥', '07♥', '08♥', '09♥', '10♥', 'JJ♥', 'QQ♥', 'KK♥'];
+  fullCards = [
+    'Át♥', '02♥', '03♥', '04♥', '05♥', '06♥', '07♥', '08♥', '09♥', '10♥', 'JJ♥', 'QQ♥', 'KK♥',
+    'Át♦', '02♦', '03♦', '04♦', '05♦', '06♦', '07♦', '08♦', '09♦', '10♦', 'JJ♦', 'QQ♦', 'KK♦',
+    'Át♣', '02♣', '03♣', '04♣', '05♣', '06♣', '07♣', '08♣', '09♣', '10♣', 'JJ♣', 'QQ♣', 'KK♣',
+    'Át♠', '02♠', '03♠', '04♠', '05♠', '06♠', '07♠', '08♠', '09♠', '10♠', 'JJ♠', 'QQ♠', 'KK♠'
+]
 
   temp  = [];
+  tempXuatCard = [];
+  cards=['Át♥', '02♥', '03♥', '04♥', '05♥', '06♥', '07♥', '08♥', '09♥', '10♥', 'JJ♥', 'QQ♥', 'KK♥'];
 
-  public addCard(card){
-  }
-  public removeCard(){
-
-  }
-  public deleteCard(pos:number){
-    let i = 0;
-    this.cards = this.cards.splice(this.temp[i])
-  }
+  tempCards = [['02♦', '03♦', '04♣'],['02♣', '03♣', '04♦']];
 
 }
