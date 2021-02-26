@@ -4,7 +4,6 @@ import { Routes, RouterModule } from '@angular/router';
 const routes: Routes = [
   //Trong
   { path: 'signup', loadChildren: () => import('./Trong/signup/signup.module').then(m => m.SignupModule) },
-  { path: 'xuatbai', loadChildren: () => import('./Trong/xuatbai/xuatbai.module').then(m => m.XuatbaiModule) },
 
   //Duc
   { path: 'ConnectSocket', loadChildren: () => import('./Duc/connect-socket/connect-socket.module').then(m => m.ConnectSocketModule) },
@@ -16,6 +15,7 @@ const routes: Routes = [
   //Long
   { path: 'home', loadChildren: () => import('./Long/pages/home/home.module').then(m => m.HomeModule) },
   { path: 'play', loadChildren: () => import('./Long/pages/play/play.module').then(m => m.PlayModule) },
+  { path: '', loadChildren: () => import('./Duc/all-page/all-page.module').then(m => m.AllPageModule) },
 ];
 
 @NgModule({

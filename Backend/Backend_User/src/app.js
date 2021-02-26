@@ -62,6 +62,7 @@ app.get("/user", async (req, res) => {
     console.log(error);
   }
 });
+
 app.post("/user", async (req, res) => {
   const {
     id,
@@ -107,14 +108,14 @@ app.get("/room", async (req, res) => {
 
 app.get("/roomRT", async (req, res) => {
 
-  let {rid} = req.query
+  let { rid } = req.query
   console.log(rid)
   try {
-    
-    let users = await admin.database().ref(rid+'/user').get()
+
+    let users = await admin.database().ref(rid + '/user').get()
     res.send(users)
-    
-    
+
+
   } catch (error) {
     console.log(error);
   }
@@ -140,55 +141,55 @@ app.post("/room", async (req, res) => {
   let dataRealTime = {
     user: [''],
     quiz: [{
-        q1: false,
-        user: "",
-        ans: ""
-      },
-      {
-        q2: false,
-        user: "",
-        ans: ""
-      },
-      {
-        q3: false,
-        user: "",
-        ans: ""
-      },
-      {
-        q4: false,
-        user: "",
-        ans: ""
-      },
-      {
-        q5: false,
-        user: "",
-        ans: ""
-      },
-      {
-        q6: false,
-        user: "",
-        ans: ""
-      },
-      {
-        q7: false,
-        user: "",
-        ans: ""
-      },
-      {
-        q8: false,
-        user: "",
-        ans: ""
-      },
-      {
-        q9: false,
-        user: "",
-        ans: ""
-      },
-      {
-        q10: false,
-        user: "",
-        ans: ""
-      },
+      q1: false,
+      user: "",
+      ans: ""
+    },
+    {
+      q2: false,
+      user: "",
+      ans: ""
+    },
+    {
+      q3: false,
+      user: "",
+      ans: ""
+    },
+    {
+      q4: false,
+      user: "",
+      ans: ""
+    },
+    {
+      q5: false,
+      user: "",
+      ans: ""
+    },
+    {
+      q6: false,
+      user: "",
+      ans: ""
+    },
+    {
+      q7: false,
+      user: "",
+      ans: ""
+    },
+    {
+      q8: false,
+      user: "",
+      ans: ""
+    },
+    {
+      q9: false,
+      user: "",
+      ans: ""
+    },
+    {
+      q10: false,
+      user: "",
+      ans: ""
+    },
     ]
   }
   try {
@@ -212,11 +213,11 @@ app.put("/room/join", async (req, res) => {
     let data = await admin.firestore().collection("rooms").doc(rid).get();
     if (data.exists) {
       let user = await admin.database().ref(`${rid}/user/${uid}`).get()
-      if(!user.exists){
+      if (!user.exists) {
         res.send('Khong thay')
       }
-      await admin.database().ref(rid+'/user').child(uid).set({
-        uid:uid
+      await admin.database().ref(rid + '/user').child(uid).set({
+        uid: uid
       })
       res.send('Da join')
       //await admin.database().ref(rid+'/user').update(users)
