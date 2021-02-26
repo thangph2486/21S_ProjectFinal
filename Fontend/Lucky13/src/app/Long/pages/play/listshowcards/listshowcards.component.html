@@ -1,0 +1,7 @@
+<div style="height: 45%; width: 50%; background-color: lightgrey; margin-left: 25%; margin-top: 10%;">
+  <div *ngFor="let item of cardService.tempXuatCard; let i = index" [attr.data-index]="i" >
+      <app-cardview  *ngFor="let card of cardService.tempXuatCard"[card]="card">
+      </app-cardview>
+  </div>
+</div>
+
