@@ -26,7 +26,9 @@ export class DocumentService {
     })
   }
 
-
+  joinRoom(){
+    this.socket.emit('join',"");
+  }
 
   getDocument(id: string) {
     this.socket.emit('getDoc', id);

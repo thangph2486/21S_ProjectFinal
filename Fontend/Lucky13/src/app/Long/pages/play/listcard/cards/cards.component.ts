@@ -1,6 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Observable, Subscription } from 'rxjs';
 import { Card, OutCard } from 'src/app/models/card.model';
 import { CardDataService } from 'src/app/services/card-data.service';
+import { DocumentService } from 'src/app/services/document.service';
 
 @Component({
   selector: 'app-cards',
@@ -8,11 +10,20 @@ import { CardDataService } from 'src/app/services/card-data.service';
   styleUrls: ['./cards.component.scss'],
 })
 export class CardsComponent implements OnInit {
+
+  
+
+  
   constructor(private cardService: CardDataService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+
+  }
   @Input()
   card: Card;
+
+
+
 
   click(card) {
     const element = <HTMLElement>document.getElementsByClassName(card)[0];
