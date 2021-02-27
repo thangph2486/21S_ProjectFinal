@@ -11,11 +11,12 @@ const config: SocketIoConfig = { url: '192.168.31.188:3000', options: {} };
 
 import { HttpClientModule } from '@angular/common/http';
 import { EmojiComponent } from './Trong/emoji/emoji.component';
+import { CountdownComponent } from './Long/pages/play/countdown/countdown.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    EmojiComponent
+    EmojiComponent,
   ],
   imports: [
     BrowserModule,
