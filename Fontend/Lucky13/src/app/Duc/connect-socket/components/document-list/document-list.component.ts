@@ -28,12 +28,16 @@ export class DocumentListComponent implements OnInit, OnDestroy {
       }
     );
 
-
   }
 
   ngOnDestroy() {
     this._docSub.unsubscribe();
   }
+
+  joinRoom(){
+    this.documentService.joinRoom()
+  }
+  
 
   loadDoc(id: string) {
     this.documentService.getDocument(id);

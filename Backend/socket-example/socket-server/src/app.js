@@ -11,6 +11,9 @@ const documents = {};
 
 io.on("connection", socket => {
     let previousId;
+    users.push(socket.id)
+    console.log(`User [${socket.id}] is connect.`)
+    socket.emit('getID', socket.id)
 
     const safeJoin = currentId => {
         socket.leave(previousId);
@@ -18,20 +21,32 @@ io.on("connection", socket => {
         previousId = currentId;
     };
 
-    users.push(socket.id)
-    console.log(`User [${socket.id}] is connect.`)
-    socket.emit('getID', socket.id)
+    socket.on('join',()=>{
+        io.of('/').in('123').clients(function(error,clients){
+            let numClients=clients.length;
+            if (numClients <=3) {
+                safeJoin('123')
+                
+            }else{
+
+            } 
+        });
+       
+        
+    })
+
+
 
     socket.on('letStart', () => {
-        let cardTemp = cardS.dealCarts(cardS.shuffleArray(cardS.CARDS), users.length)
-        //safeJoin(doc.id);
-        //io.emit("gameData", Object.keys({ cards: cardTemp }));
-
-        //io.emit("gameData", cardTemp);
-        io.to(users[0]).emit("gameData", cardTemp[0]);
-        io.to(users[1]).emit("gameData", cardTemp[1]);
-
-
+       
+        io.of('/').in('123').clients(function(error,clients){
+            console.log(clients)
+            let cardTemp = cardS.dealCarts(cardS.shuffleArray(cardS.CARDS), clients.length)
+                for (let i = 0; i < clients.length; i++) {
+                    io.to(clients[i]).emit("gameData", cardTemp[i]);
+                }
+           
+        });
     })
 
 

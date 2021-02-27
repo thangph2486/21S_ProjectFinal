@@ -1,15 +1,48 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { Observable } from 'rxjs';
 import { CardDataService } from 'src/app/services/card-data.service';
+import { DocumentService } from 'src/app/services/document.service';
 
 @Component({
   selector: 'app-listcard',
   templateUrl: './listcard.component.html',
   styleUrls: ['./listcard.component.scss'],
 })
-export class ListcardComponent implements OnInit {
-  constructor(public cardService: CardDataService) {}
+export class ListcardComponent implements OnInit,OnDestroy {
+  documents: Observable<string[]>;
+  currentDoc: string;
+  private _docSub: Subscription;
+  dataGame: Observable<string[]>;
+  constructor(public cardService: CardDataService,private documentService: DocumentService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.documents = this.documentService.documents;
+
+    this.dataGame = this.documentService.gameData;
+    this._docSub = this.documentService.currentDocument.subscribe(
+      doc => {
+        this.currentDoc = doc.id
+      }
+    );
+  }
+
+  ngOnDestroy() {
+    this._docSub.unsubscribe();
+  }
+  joinRoom(){
+    this.documentService.joinRoom()
+  }
+  
+
+  startGame() {
+    this.documentService.letStart()
+  }
+
+  newDoc() {
+    this.documentService.newDocument();
+  }
+
 
   // arr = [0,1,2];
   // getCards(arr){
