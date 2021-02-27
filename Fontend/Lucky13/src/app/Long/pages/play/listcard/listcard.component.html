@@ -1,9 +1,19 @@
 <div>
-  <div style=" position: absolute; bottom: 24%; width: 100%; " >
-    <button  style="margin-left: 20%;" (click)="removeCard()" class="button button1">Đánh</button>
-    <button  style="margin-left: 1%;" (click)="clearCard()" class="button button2" >Bỏ Lượt</button>
+  <div style=" position: absolute; bottom: 24%; width: 100%; ">
+    <button style="margin-left: 20%;" (click)="removeCard()" class="button button1">Đánh</button>
+    <button style="margin-left: 1%;" (click)="clearCard()" class="button button2">Bỏ Lượt</button>
   </div>
   <div style="margin-top: 630px; position: absolute; bottom: 0%; width: 100%; text-align: center;">
     <app-cards *ngFor="let card of cardService.cards" [card]="card"></app-cards>
   </div>
+
+  <h1 style="color: aliceblue;" *ngFor='let docId of dataGame | async'>
+    {{ docId }}
+  </h1>
+
+  <h1 style="color: aliceblue;">
+    cmm
+  </h1>
+
+
 </div>
