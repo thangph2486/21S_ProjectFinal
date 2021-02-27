@@ -53,3 +53,4 @@ export class ListcardComponent implements OnInit {
     console.log(this.cardService.tempXuatCard);
   }
 }
+// dqwdqw
