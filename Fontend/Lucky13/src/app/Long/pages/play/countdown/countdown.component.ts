@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class CountdownComponent implements OnInit {
 
 
-  public time = 61
+  public time = 31;
   constructor() {
     this.downTime()
    }
