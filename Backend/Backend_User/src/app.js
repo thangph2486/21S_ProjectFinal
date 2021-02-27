@@ -62,14 +62,40 @@ app.get("/user", async (req, res) => {
     console.log(error);
   }
 });
+
+app.post("/login", async (req, res) => {
+  const {
+    uid,
+    password
+  } = req.body;
+  try {
+    console.log(uid,password)
+    let a = await admin.firestore().collection("user").doc(uid).get();
+    console.log(a)
+    if (!a.exists) {
+      res.send(`${uid} has not exists`);
+    } else {
+      if(a.data().password==password){
+        res.send(a.data());
+      }
+      else{
+        res.send(false);
+      }
+    }
+  } catch (error) {
+    console.log(error);
+  }
+});
 app.post("/user", async (req, res) => {
   const {
     id,
     displayName,
     email,
-    photoURL
+    photoURL,
+    phone,
+    password
   } = req.body;
-  console.log(id, displayName, email, photoURL);
+  console.log(id, displayName, email, photoURL,phone,password);
   try {
     let a = await admin.firestore().collection("user").doc(id).get();
     if (!a.exists) {
@@ -78,6 +104,8 @@ app.post("/user", async (req, res) => {
         displayName: displayName,
         email: email,
         photoURL: photoURL,
+        phone: phone,
+        password: password
       });
       res.send(`${id} has been created`);
     } else {
