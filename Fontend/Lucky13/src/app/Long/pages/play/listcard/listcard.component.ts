@@ -54,3 +54,4 @@ export class ListcardComponent implements OnInit {
   }
 }
 // dqwdqw
+//cscq
