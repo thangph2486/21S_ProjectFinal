@@ -1,3 +1,4 @@
+import { NgIf } from '@angular/common';
 import { TestBed } from '@angular/core/testing';
 
 import { LoginService } from './login.service';
@@ -14,3 +15,5 @@ describe('LoginService', () => {
     expect(service).toBeTruthy();
   });
 });
+
+// NgIf=auth. = routerl0nk 

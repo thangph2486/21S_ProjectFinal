@@ -1,7 +1,7 @@
-<div style="margin-top: 630px;" style="position: absolute; bottom: 10%; width: 100%; text-align: center; margin-left: 80px;">
+<div style="margin-top: 630px;" style="position: absolute; bottom: 7%; width: 100%; text-align: center; margin-left: 25px;">
     <app-cards *ngFor="let card of cardService.cards" [card]="card"></app-cards>
   </div>
-<button (click)="removeCard()" style="margin-left: 150px;">
+<button (click)="removeCard()" style="margin-left: 150px;position: relative; bottom: 22px; ">
   đánh
 </button>
-<button (click)="clearCard()" >bỏ lượt</button>
+<button (click)="clearCard()" style="position: relative; bottom: 22px;" >bỏ lượt</button>
