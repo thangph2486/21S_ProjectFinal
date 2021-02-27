@@ -5,8 +5,10 @@
   float: left;
   padding: 10px;
 }
-.column.side {
+.column.side1 {
   width: 50%;
+  margin-top: -75px;
+  margin-left: 100px;
 }
 .row:after {
   content: "";
@@ -62,6 +64,19 @@ button {
   opacity: 0.9;
   font-size: 15pt;
 }
+
+// a{
+//   background-color: black;
+//   color: white;
+//   padding: 25px;
+//   margin: 25px 0;
+//   border: none;
+//   border-radius: 15px;
+//   cursor: pointer;
+//   width: 65%;
+//   opacity: 0.9;
+//   font-size: 15pt;
+// }
 button:hover {
   opacity:1;
 }
@@ -91,4 +106,12 @@ button:hover {
 }
 div class :right{
   font-size: large;
+}
+
+#bt1{
+  margin-top: -15px;
+}
+
+#bt1:focus{
+  border: none;
 }
