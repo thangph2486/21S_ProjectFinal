@@ -20,6 +20,7 @@ export class DocumentListComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.documents = this.documentService.documents;
+
     this.dataGame = this.documentService.gameData;
     this._docSub = this.documentService.currentDocument.subscribe(
       doc => {
