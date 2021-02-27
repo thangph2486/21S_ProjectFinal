@@ -9,12 +9,18 @@ import { ListshowcardsComponent } from './listshowcards/listshowcards.component'
 import { CardviewComponent } from './listshowcards/cardview/cardview.component';
 import { CountdownComponent } from './countdown/countdown.component';
 
+import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
+import { FormsModule } from '@angular/forms';
+const config: SocketIoConfig = { url: 'http://localhost:4444', options: {} };
 
 @NgModule({
   declarations: [PlayComponent, CardsComponent, ListcardComponent, ListshowcardsComponent, CardviewComponent, CountdownComponent],
   imports: [
     CommonModule,
-    PlayRoutingModule
+    PlayRoutingModule,
+    FormsModule,
+    SocketIoModule.forRoot(config)
+
   ]
 })
 export class PlayModule { }

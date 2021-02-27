@@ -69,12 +69,20 @@ button:hover {
 }
 .container {
   padding: 5px;
+  margin-top: -3%;
 }
 .clearfix::after {
   content: "";
   clear: both;
   display: table;
 }
+
+.signupbtn:focus{
+  border: none;
+  
+}
+
+
 @media screen and (max-width: 300px) {
   .cancelbtn, .signupbtn {
      width: 100%;
@@ -84,7 +92,7 @@ button:hover {
   padding: 5px;
   width: 15vw;
   margin-left: 30%;
-  margin-top: 10%;
+  margin-top: 1%;
 }
 .labai {
   width: 70%;
