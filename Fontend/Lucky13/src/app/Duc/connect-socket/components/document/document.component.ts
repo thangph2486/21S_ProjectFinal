@@ -12,6 +12,8 @@ import { DocumentService } from 'src/app/services/document.service';
 })
 export class DocumentComponent implements OnInit, OnDestroy {
   document: Document;
+  game
+
   private _docSub: Subscription;
 
   constructor(private documentService: DocumentService) { }
@@ -19,7 +21,10 @@ export class DocumentComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this._docSub = this.documentService.currentDocument.pipe(
       startWith({ id: '', doc: 'Select an existing document or create a new one to get started' })
-    ).subscribe(document => this.document = document);
+    ).subscribe(document => {
+      this.document = document
+    });
+
   }
 
   ngOnDestroy() {

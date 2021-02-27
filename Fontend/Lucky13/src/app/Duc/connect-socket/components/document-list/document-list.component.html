@@ -5,4 +5,8 @@
     <span [class.selected]='docId === currentDoc' (click)='loadDoc(docId)' *ngFor='let docId of documents | async'>
         {{ docId }}
     </span>
+
+    <h1 style="color: aliceblue;" *ngFor='let docId of dataGame | async'>
+        {{ docId }}
+    </h1>
 </div>

@@ -28,7 +28,7 @@ class CardsService {
     }
     shuffleArray(array) {
         for (var i = array.length - 1; i > 0; i--) {
-            var numRan = getRandom(0, i)
+            var numRan = this.getRandom(0, i)
             var temp = array[i];
             array[i] = array[numRan];
             array[numRan] = temp;
@@ -81,19 +81,20 @@ class CardsService {
 
         return cartsTemp
     }
-    dealCarts(carts) {
-        let arr1 = [], arr2 = [], arr3 = [], arr4 = []
-        do {
-            arr1.push(carts.pop())
-            arr2.push(carts.pop())
-            arr3.push(carts.pop())
-            arr4.push(carts.pop())
-        } while (carts.length > 0);
-        sort(arr1)
-        sort(arr2)
-        sort(arr3)
-        sort(arr4)
-        return { arr1, arr2, arr3, arr4 }
+
+    /**
+     * 
+     * @param {Array} carts 
+     * @param {number} numPlayer 
+     */
+    dealCarts(carts, numPlayer) {
+        let arr = []
+        for (let i = 0; i < numPlayer; i++) {
+            let arrTemp = carts.splice(0, 13)
+            this.sort(arrTemp)
+            arr.push(arrTemp)
+        }
+        return arr
     }
     /**
      * 
@@ -103,7 +104,7 @@ class CardsService {
         let temp = 0, length = 12
         do {
             for (let i = 0; i < length; i++) {
-                temp = isGreater1(cart13[i], cart13[i + 1])
+                temp = this.isGreater1(cart13[i], cart13[i + 1])
                 if (temp == cart13[i]) {
                     cart13[i] = cart13[i + 1]
                     cart13[i + 1] = temp
@@ -138,10 +139,10 @@ class CardsService {
         }
     }
     isGreater1(cart1, cart2) {
-        let num1 = arrCart.indexOf(cart1[1])
-        let num2 = arrCart.indexOf(cart2[1])
-        let chat1 = arrChat.indexOf(cart1[2])
-        let chat2 = arrChat.indexOf(cart2[2])
+        let num1 = this.arrCart.indexOf(cart1[1])
+        let num2 = this.arrCart.indexOf(cart2[1])
+        let chat1 = this.arrChat.indexOf(cart1[2])
+        let chat2 = this.arrChat.indexOf(cart2[2])
         //♥ ♦ ♣ ♠
         num1 += '.' + chat1
         num2 += '.' + chat2

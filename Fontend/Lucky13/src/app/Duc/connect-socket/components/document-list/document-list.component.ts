@@ -13,11 +13,21 @@ export class DocumentListComponent implements OnInit, OnDestroy {
   currentDoc: string;
   private _docSub: Subscription;
 
+  dataGame: Observable<string[]>;
+
+
   constructor(private documentService: DocumentService) { }
 
   ngOnInit() {
     this.documents = this.documentService.documents;
-    this._docSub = this.documentService.currentDocument.subscribe(doc => this.currentDoc = doc.id);
+    this.dataGame = this.documentService.gameData;
+    this._docSub = this.documentService.currentDocument.subscribe(
+      doc => {
+        this.currentDoc = doc.id
+      }
+    );
+
+
   }
 
   ngOnDestroy() {
