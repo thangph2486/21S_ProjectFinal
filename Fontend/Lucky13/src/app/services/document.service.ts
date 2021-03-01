@@ -2,6 +2,7 @@ import { createNgModule } from '@angular/compiler/src/core';
 import { Injectable } from '@angular/core';
 import { Socket } from 'ngx-socket-io';
 import { Document } from 'src/app/models/document.model';
+import { CardDataService } from './card-data.service';
 
 @Injectable({
   providedIn: 'root'
@@ -9,13 +10,14 @@ import { Document } from 'src/app/models/document.model';
 export class DocumentService {
   currentDocument = this.socket.fromEvent<Document>('document');
   documents = this.socket.fromEvent<string[]>('documents');
-
   gameData = this.socket.fromEvent<string[]>('gameData');
 
   socketID
   temp
 
-  constructor(public socket: Socket) { }
+  constructor(public socket: Socket, cardDataService: CardDataService) {
+    this.gameData.subscribe(event => cardDataService.cardsOfUser = event);
+  }
 
   letStart() {
     this.socket.emit('letStart', '');
@@ -26,8 +28,8 @@ export class DocumentService {
     })
   }
 
-  joinRoom(){
-    this.socket.emit('join',"");
+  joinRoom() {
+    this.socket.emit('join', "");
   }
 
   getDocument(id: string) {

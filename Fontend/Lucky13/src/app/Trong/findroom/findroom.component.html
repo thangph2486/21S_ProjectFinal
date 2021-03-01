@@ -1,1 +1,20 @@
 <app-nav-findroom></app-nav-findroom>
+
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+  <ng-container matColumnDef="position">
+    <th mat-header-cell *matHeaderCellDef class="class1" > <strong>ID Bàn </strong> </th>
+  </ng-container>
+    <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef class="class1" > <strong>Tên Bàn</strong>  </th>
+  </ng-container>
+  <ng-container matColumnDef="weight">
+    <th mat-header-cell *matHeaderCellDef class="class1" > <strong>Mức Cược</strong>  </th>
+  </ng-container>
+  <ng-container matColumnDef="symbol">
+    <th mat-header-cell *matHeaderCellDef class="class1" > <strong>Số Người </strong> </th>
+  </ng-container>
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+</table>
+
+<app-room></app-room>
+<app-user></app-user>

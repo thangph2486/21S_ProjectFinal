@@ -6,15 +6,18 @@ import { FindroomComponent } from './findroom.component';
 import { NavFindroomComponent } from './components/nav-findroom/nav-findroom.component';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon'
-
+import {MatTableModule} from '@angular/material/table';
+import { RoomComponent } from './components/room/room.component';
+import { UserComponent } from './components/user/user.component';
 
 @NgModule({
-  declarations: [FindroomComponent, NavFindroomComponent],
+  declarations: [FindroomComponent, NavFindroomComponent, RoomComponent, UserComponent],
   imports: [
     CommonModule,
     FindroomRoutingModule,
     MatToolbarModule,
-    MatIconModule
+    MatIconModule,
+    MatTableModule
   ]
 })
 export class FindroomModule { }

@@ -1,0 +1,13 @@
+table {
+  width: 100%;
+  flex-wrap: wrap;
+}
+table:hover {
+  box-shadow: 0 14px 18px 0 rgba(34, 33, 33, 0.4);
+}
+.room1 {
+  text-align: center;
+  background-color: #C4C4C4;
+  font-size: 18pt;
+  border: solid;
+}

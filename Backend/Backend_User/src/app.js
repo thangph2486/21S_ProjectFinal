@@ -63,23 +63,22 @@ app.get("/user", async (req, res) => {
   }
 });
 
-<<<<<<< HEAD
 app.post("/login", async (req, res) => {
   const {
     uid,
     password
   } = req.body;
   try {
-    console.log(uid,password)
+    console.log(uid, password)
     let a = await admin.firestore().collection("user").doc(uid).get();
     console.log(a)
     if (!a.exists) {
       res.send(`${uid} has not exists`);
     } else {
-      if(a.data().password==password){
+      if (a.data().password == password) {
         res.send(a.data());
       }
-      else{
+      else {
         res.send(false);
       }
     }
@@ -87,8 +86,6 @@ app.post("/login", async (req, res) => {
     console.log(error);
   }
 });
-=======
->>>>>>> 16481d587023cfc74b69f5fcfff62ed1f7731d0d
 app.post("/user", async (req, res) => {
   const {
     id,
@@ -98,7 +95,7 @@ app.post("/user", async (req, res) => {
     phone,
     password
   } = req.body;
-  console.log(id, displayName, email, photoURL,phone,password);
+  console.log(id, displayName, email, photoURL, phone, password);
   try {
     let a = await admin.firestore().collection("user").doc(id).get();
     if (!a.exists) {

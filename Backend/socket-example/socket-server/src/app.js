@@ -21,31 +21,31 @@ io.on("connection", socket => {
         previousId = currentId;
     };
 
-    socket.on('join',()=>{
-        io.of('/').in('123').clients(function(error,clients){
-            let numClients=clients.length;
-            if (numClients <=3) {
+    socket.on('join', () => {
+        io.of('/').in('123').clients(function (error, clients) {
+            let numClients = clients.length;
+            if (numClients <= 3) {
                 safeJoin('123')
-                
-            }else{
 
-            } 
+            } else {
+
+            }
         });
-       
-        
+
+
     })
 
 
 
     socket.on('letStart', () => {
-       
-        io.of('/').in('123').clients(function(error,clients){
+
+        io.of('/').in('123').clients(function (error, clients) {
             console.log(clients)
             let cardTemp = cardS.dealCarts(cardS.shuffleArray(cardS.CARDS), clients.length)
-                for (let i = 0; i < clients.length; i++) {
-                    io.to(clients[i]).emit("gameData", cardTemp[i]);
-                }
-           
+            for (let i = 0; i < clients.length; i++) {
+                io.to(clients[i]).emit("gameData", cardTemp[i]);
+            }
+
         });
     })
 
@@ -79,6 +79,6 @@ io.on("connection", socket => {
 
 });
 
-http.listen(3000, '0.0.0.0', () => {
+http.listen(3000, () => {
     console.log('listening on *:3000');
 });
