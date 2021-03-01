@@ -9,10 +9,7 @@ import { Observable } from 'rxjs';
 export class CardDataService {
   constructor(public socket: Socket) { }
   isPlaying = false
-  temp = [];
-  tempXuatCard = [];
-  //mang lon de show
-  tempPush = [];
-  cardsOfUser
-
+  cardsOfUser = []//Bài hiện tại của người chơi.
+  cardsViews = []//Tất cả bài đã đánh trong một vòng.
+  cardViewTemp = []//Bài người chơi chọn.
 }
