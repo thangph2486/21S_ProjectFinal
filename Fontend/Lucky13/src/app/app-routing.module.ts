@@ -18,6 +18,7 @@ const routes: Routes = [
   { path: '', loadChildren: () => import('./Duc/all-page/all-page.module').then(m => m.AllPageModule) },
   { path: 'homeLogin', loadChildren: () => import('./Long/pages/home-login/home-login.module').then(m => m.HomeLoginModule) },
   { path: 'contact', loadChildren: () => import('./Long/pages/contact/contact.module').then(m => m.ContactModule) },
+  { path: 'findroom', loadChildren: () => import('./Trong/findroom/findroom.module').then(m => m.FindroomModule) },
 ];
 
 @NgModule({

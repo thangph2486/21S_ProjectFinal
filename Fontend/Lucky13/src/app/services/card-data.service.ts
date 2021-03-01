@@ -20,8 +20,7 @@ export class CardDataService {
   //mang lon de show
   tempPush = [];
   cards = ['Át♥', '02♥', '03♥', '04♥', '05♥', '06♥', '07♥', '08♥', '09♥', '10♥', 'JJ♥', 'QQ♥', 'KK♥'];
-  
+
   cards1=['Át♥', '02♥', '03♥', '04♥', '05♥', '06♥', '07♥', '08♥', '09♥', '10♥', 'JJ♥', 'QQ♥', 'KK♥'];
-  cards
 
 }

@@ -12,6 +12,7 @@ const config: SocketIoConfig = { url: '0.0.0.0:3000', options: {} };
 import { HttpClientModule } from '@angular/common/http';
 import { EmojiComponent } from './Trong/emoji/emoji.component';
 import { CountdownComponent } from './Long/pages/play/countdown/countdown.component';
+import {MatToolbarModule} from '@angular/material/toolbar';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { CountdownComponent } from './Long/pages/play/countdown/countdown.compon
     SocketIoModule.forRoot(config),
     MatButtonModule,
     ReactiveFormsModule,
+    MatToolbarModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
