@@ -13,7 +13,7 @@ export class CardsComponent implements OnInit {
 
   
   constructor(private cardService: CardDataService,private documentService: DocumentService ) {}
-
+  
   ngOnInit(): void {
 
   }
@@ -27,7 +27,6 @@ export class CardsComponent implements OnInit {
 
 
   click(card) {
-
     const element = <HTMLElement>document.getElementsByClassName(card)[0];
     if (element.style.marginBottom.valueOf() == '25px') {
       element.style.marginBottom = '0px';

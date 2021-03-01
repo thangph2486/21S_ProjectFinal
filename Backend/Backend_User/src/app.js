@@ -69,16 +69,16 @@ app.post("/login", async (req, res) => {
     password
   } = req.body;
   try {
-    console.log(uid,password)
+    console.log(uid, password)
     let a = await admin.firestore().collection("user").doc(uid).get();
     console.log(a)
     if (!a.exists) {
       res.send(`${uid} has not exists`);
     } else {
-      if(a.data().password==password){
+      if (a.data().password == password) {
         res.send(a.data());
       }
-      else{
+      else {
         res.send(false);
       }
     }
@@ -95,7 +95,7 @@ app.post("/user", async (req, res) => {
     phone,
     password
   } = req.body;
-  console.log(id, displayName, email, photoURL,phone,password);
+  console.log(id, displayName, email, photoURL, phone, password);
   try {
     let a = await admin.firestore().collection("user").doc(id).get();
     if (!a.exists) {

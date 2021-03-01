@@ -2,6 +2,7 @@ import { createNgModule } from '@angular/compiler/src/core';
 import { Injectable } from '@angular/core';
 import { Socket } from 'ngx-socket-io';
 import { Document } from 'src/app/models/document.model';
+import { CardDataService } from './card-data.service';
 
 @Injectable({
   providedIn: 'root'
@@ -15,11 +16,13 @@ export class DocumentService {
   socketID
   temp
 
-  constructor(public socket: Socket) { }
+  constructor(public socket: Socket,CardDataService:CardDataService) { 
+    this.gameData.subscribe(event => CardDataService.cardsOfUser = event)
+  }
 
 
   checkValid(cards:Array<any>){
-    this.socket.emit('checkValid',cards);
+    this.socket.emit('checkValid',cards)
   }
 
   letStart() {

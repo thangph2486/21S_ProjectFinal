@@ -12,17 +12,17 @@ export class PlayComponent implements OnInit {
   private _docSub: Subscription;
 
   constructor(
-    public cardDataService: CardDataService,
-    public docDataService: DocumentService
+    public documentService: DocumentService,
+    public cardDataService: CardDataService
 
   ) { }
 
   ngOnInit(): void {
-    this.docDataService.getSocketID()
+    this.documentService.getSocketID()
   }
   letStart() {
     this.cardDataService.isPlaying = true
-    this.docDataService.letStart()
+    this.documentService.letStart()
   }
   ngOnDestroy() {
     this._docSub.unsubscribe();

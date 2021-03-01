@@ -21,14 +21,14 @@ io.on("connection", socket => {
         previousId = currentId;
     };
 
-    socket.on('join',()=>{
-        io.of('/').in('123').clients(function(error,clients){
-            let numClients=clients.length;
-            if (numClients <=3) {
+    socket.on('join', () => {
+        io.of('/').in('123').clients(function (error, clients) {
+            let numClients = clients.length;
+            if (numClients <= 3) {
                 safeJoin('123')
             }else{
 
-            } 
+            }
         });
         socket.on('letStart', () => {
             let cardTemp = cardS.dealCarts(cardS.falmOff(), 4)
@@ -87,6 +87,6 @@ io.on("connection", socket => {
 
 });
 
-http.listen(3000, '0.0.0.0', () => {
+http.listen(3000, () => {
     console.log('listening on *:3000');
 });

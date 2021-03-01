@@ -81,10 +81,8 @@ export class ListcardComponent implements OnInit,OnDestroy {
     console.log(this.cardService.tempPush);
   }
 
-  clearCard() {
-    this.cardService.tempPush.splice(0);
-    console.log(this.cardService.tempXuatCard);
-  }
+  // clearCard() {
+  //   this.cardService.tempPush.splice(0);
+  //   console.log(this.cardService.tempXuatCard);
+  // }
 }
-// dqwdqw
-//cscq
