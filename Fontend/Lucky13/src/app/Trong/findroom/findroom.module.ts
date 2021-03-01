@@ -9,6 +9,7 @@ import {MatIconModule} from '@angular/material/icon'
 import {MatTableModule} from '@angular/material/table';
 import { RoomComponent } from './components/room/room.component';
 import { UserComponent } from './components/user/user.component';
+import {MatButtonModule} from '@angular/material/button';
 
 @NgModule({
   declarations: [FindroomComponent, NavFindroomComponent, RoomComponent, UserComponent],
@@ -17,7 +18,8 @@ import { UserComponent } from './components/user/user.component';
     FindroomRoutingModule,
     MatToolbarModule,
     MatIconModule,
-    MatTableModule
+    MatTableModule,
+    MatButtonModule
   ]
 })
 export class FindroomModule { }
