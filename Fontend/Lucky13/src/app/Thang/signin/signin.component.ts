@@ -9,61 +9,65 @@ import { UserService } from 'src/app/services/user.service';
 @Component({
   selector: 'app-signin',
   templateUrl: './signin.component.html',
-  styleUrls: ['./signin.component.scss']
+  styleUrls: ['./signin.component.scss'],
 })
-export class SigninComponent  implements OnInit {
+export class SigninComponent implements OnInit {
   constructor(
     private userService: UserService,
     public auth: AngularFireAuth,
-    // public player: LoginService
-    // public router: Router,
+    public player: LoginService,
+    public router: Router
   ) {}
   public user = null;
   async login() {
     const provider = new firebase.default.auth.GoogleAuthProvider();
     try {
       await this.auth.signInWithPopup(provider);
-      console.log(this.user.uid)
-      if (this.user!=null) {
-        await this.userService.createUser(
-          this.user.displayName,
-          this.user.email,
-          this.user.photoURL,
-          this.user.uid,
-          this.user.phone,
-          this.user.password
-        );
-        alert('chuyen trang')
+      console.log(this.user.uid);
+      if (this.user != null) {
+        // await this.userService.createUser(
+        //   this.user.displayName,
+        //   this.user.email,
+        //   this.user.photoURL,
+        //   this.user.uid,
+        //   '',
+        //   ''
+        // );
+        // alert('dang nhap thanh cong');
+        
       }
-      this.userService.user = this.user
+      this.router.navigate(['homeLogin']);
+      this.userService.user = this.user;
+      
     } catch (err) {
-      alert(err);
+      alert('loi');
     }
   }
 
-  
   ID: any;
   PW: any;
 
-  async loginNow(){
-    try{
-      return await this.userService.login(
-        this.ID,
-        this.PW
-      ).then((res=>{
-        console.log(res)
-      }))
-    } catch (err){
+  async loginNow() {
+    try {
+      return await this.userService.login(this.ID, this.PW).then((res) => {
+        console.log(res);
+        this.router.navigate(['homeLogin']);
+        this.userService.user = this.user;        
+      });
+
+      
+    } catch (err) {
       console.log(err);
     }
   }
 
-
-
-
-
   ngOnInit(): void {
-    // this.player.getUser(this.user)
+    this.auth.authState.subscribe((auth) => {
+      if (this.user == null) {
+        this.user = auth;
+        this.player.getUser(this.user);
+      }
+    });
   }
   ngOnDestroy(): void {
     this.user = null;

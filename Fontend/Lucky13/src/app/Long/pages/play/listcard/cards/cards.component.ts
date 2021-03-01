@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { Observable, Subscription } from 'rxjs';
 import { Card, OutCard } from 'src/app/models/card.model';
 import { CardDataService } from 'src/app/services/card-data.service';
@@ -12,9 +12,7 @@ import { DocumentService } from 'src/app/services/document.service';
 export class CardsComponent implements OnInit {
 
   
-
-  
-  constructor(private cardService: CardDataService) {}
+  constructor(private cardService: CardDataService,private documentService: DocumentService ) {}
 
   ngOnInit(): void {
 
@@ -25,7 +23,11 @@ export class CardsComponent implements OnInit {
 
 
 
+
+
+
   click(card) {
+
     const element = <HTMLElement>document.getElementsByClassName(card)[0];
     if (element.style.marginBottom.valueOf() == '25px') {
       element.style.marginBottom = '0px';
@@ -35,5 +37,6 @@ export class CardsComponent implements OnInit {
       this.cardService.temp.push(card);
     }
     console.log(this.cardService.temp);
+    this.documentService.checkValid(this.cardService.temp)
   }
 }

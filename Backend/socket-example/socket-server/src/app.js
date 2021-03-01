@@ -26,30 +26,38 @@ io.on("connection", socket => {
             let numClients=clients.length;
             if (numClients <=3) {
                 safeJoin('123')
-                
             }else{
 
             } 
         });
+        socket.on('letStart', () => {
+            let cardTemp = cardS.dealCarts(cardS.falmOff(), 4)
+            io.of('/').in('123').clients(function(error,clients){
+                console.log(clients)
+                    for (let i = 0; i < clients.length; i++) {
+                        io.to(clients[i]).emit("gameData", (cardTemp[i]));
+                    }
+            });
+
+            socket.on('checkValid',(deck) =>{
+                io.of('/').in('123').clients(function(error,clients){
+                let isValid = cardS.isValid(cardTemp[clients.indexOf(socket.id)],deck)
+                console.log(isValid)
+                socket.emit('isValid',isValid)
+                });
+            })
+        })
+
        
         
     })
 
 
-
-    socket.on('letStart', () => {
-       
-        io.of('/').in('123').clients(function(error,clients){
-            console.log(clients)
-            let cardTemp = cardS.dealCarts(cardS.shuffleArray(cardS.CARDS), clients.length)
-                for (let i = 0; i < clients.length; i++) {
-                    io.to(clients[i]).emit("gameData", cardTemp[i]);
-                }
-           
-        });
-    })
-
-
+    // socket.on('danhBai', (data)=>{
+    //     io.of('/').in('123').clients(function(error,clients){
+            
+    //     }
+    // })
 
     socket.on("getDoc", docId => {
         safeJoin(docId);

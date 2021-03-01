@@ -17,6 +17,11 @@ export class DocumentService {
 
   constructor(public socket: Socket) { }
 
+
+  checkValid(cards:Array<any>){
+    this.socket.emit('checkValid',cards);
+  }
+
   letStart() {
     this.socket.emit('letStart', '');
   }
