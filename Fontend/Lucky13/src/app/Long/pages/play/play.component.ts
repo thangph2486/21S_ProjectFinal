@@ -22,6 +22,7 @@ export class PlayComponent implements OnInit {
   }
   letStart() {
     this.documentService.letStart()
+    this.cardDataService.isPlaying = true
   }
   ngOnDestroy() {
     this._docSub.unsubscribe();

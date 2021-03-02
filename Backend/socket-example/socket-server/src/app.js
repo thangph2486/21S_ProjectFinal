@@ -12,8 +12,13 @@ let room = {
         players: [],
         isPlaying: false,
         playerFirstStart: '',
-        cardOut: ''
+        cardOut: []
     },
+}
+let publicValue = {
+    //user:['lzTxZn9vcWWzywXNAAA5', '0RbojUK4uC2XGgt5AAA4'],
+    //outCard:[],
+    //numCard:[13,11]
 }
 let users = {
     // hduc: {//Example
@@ -22,7 +27,9 @@ let users = {
     //     isPlaying: false,
     //     cards: ['', ''],
     //     inTurn: false,
+    //     can
 
+    //      
     // },
 }
 
@@ -30,7 +37,6 @@ function a() {
     console.log('-------------------------------------------------------------------')
     console.log({ rooms: room })
     console.log({ usersR123: room.r123.players })
-
     console.log({ users: users })
 }
 function getLength(obj) {
@@ -131,12 +137,15 @@ io.on("connection", socket => {
 
         a()
     });
+
+    socket.on("debug", doc => {
+        documents[doc.id] = doc;
+    });
     //io.emit("documents", Object.keys(documents));
+    a()
     io.emit("users", Object.keys(documents));
 
-    app.get('/hi', (req, res) => {
-        res.send('hi there!')
-    })
+
 });
 
 http.listen(3000, () => {
