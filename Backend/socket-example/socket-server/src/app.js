@@ -39,13 +39,13 @@ io.on("connection", socket => {
                     }
             });
 
-            socket.on('checkValid',(deck) =>{
-                io.of('/').in('123').clients(function(error,clients){
-                let isValid = cardS.isValid(cardTemp[clients.indexOf(socket.id)],deck)
-                console.log(isValid)
-                socket.emit('isValid',isValid)
-                });
-            })
+            // socket.on('checkValid',(deck) =>{
+            //     io.of('/').in('123').clients(function(error,clients){
+            //     let isValid = cardS.isValid(cardTemp[clients.indexOf(socket.id)],deck)
+            //     console.log(isValid)
+            //     socket.emit('isValid',isValid)
+            //     });
+            // })
         })
 
        

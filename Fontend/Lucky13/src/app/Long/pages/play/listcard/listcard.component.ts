@@ -30,7 +30,30 @@ export class ListcardComponent implements OnInit,OnDestroy {
   ngOnDestroy() {
     this._docSub.unsubscribe();
   }
-  joinRoom(){
+
+  sendCards() {
+    
+    //Gui bai socket
+
+    //neu socket tra ve true=>
+    
+    for (let i = 0; i < this.cardService.cardViewTemp.length; i++) {
+      let index = this.cardService.cardsOfUser.indexOf(this.cardService.cardViewTemp[i])
+      this.cardService.cardsOfUser.splice(index, 1)
+    }
+    this.cardService.cardsViews.push(this.cardService.cardViewTemp)
+    this.cardService.cardViewTemp = []
+
+    console.log(this.cardService.cardsViews)
+  }
+  offTurn() {
+
+
+  }
+
+
+
+  joinRoom() {
     this.documentService.joinRoom()
   }
   
@@ -42,47 +65,4 @@ export class ListcardComponent implements OnInit,OnDestroy {
   newDoc() {
     this.documentService.newDocument();
   }
-
-
-  // arr = [0,1,2];
-  // getCards(arr){
-  //   for ( let i =0; i<arr.length;i++){
-  //     this.click(this.cardService.cards[i]);
-  //   }
-  // }
-  // i=-1
-  // removeCard(card){
-  //   if( this.i==-1){
-  //     // this.click(this.cards[i]);
-  //     // let remove = this.cards.splice(i,1);
-  //     console.log(this.cardService.cards.indexOf(card));
-  //   }
-  // }
-
-  // click(card:string){
-  //   const element = <HTMLElement> document.getElementsByClassName(card)[0];
-  //   element.style.marginBottom.valueOf() == '25px' ? element.style.marginBottom = '0px': element.style.marginBottom = '25px';
-  //   console.log(element.style.marginBottom.valueOf());
-  //   console.log(card);
-  // }
-
-  removeCard() {
-    //xoa bai
-    this.cardService.tempPush =[];
-    for (let i = 0; i < this.cardService.temp.length; i++) {
-      let index = this.cardService.cards.indexOf(this.cardService.temp[i]);
-      this.cardService.cards.splice(index, 1);
-      this.cardService.tempXuatCard.push(this.cardService.temp[i]);
-    }
-    this.cardService.temp.splice(0);
-    //push mang lon
-    this.cardService.tempPush.push(this.cardService.tempXuatCard);
-    this.cardService.tempXuatCard= []
-    console.log(this.cardService.tempPush);
-  }
-
-  // clearCard() {
-  //   this.cardService.tempPush.splice(0);
-  //   console.log(this.cardService.tempXuatCard);
-  // }
 }

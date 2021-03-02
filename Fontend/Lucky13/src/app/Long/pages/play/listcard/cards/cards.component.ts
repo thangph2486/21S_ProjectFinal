@@ -11,9 +11,11 @@ import { DocumentService } from 'src/app/services/document.service';
 })
 export class CardsComponent implements OnInit {
 
-  
-  constructor(private cardService: CardDataService,private documentService: DocumentService ) {}
-  
+
+
+
+  constructor(private cardService: CardDataService,private documentService:DocumentService) { }
+
   ngOnInit(): void {
 
   }
@@ -30,12 +32,12 @@ export class CardsComponent implements OnInit {
     const element = <HTMLElement>document.getElementsByClassName(card)[0];
     if (element.style.marginBottom.valueOf() == '25px') {
       element.style.marginBottom = '0px';
-      this.cardService.temp.pop();
+      this.cardService.cardViewTemp.pop();
     } else {
       element.style.marginBottom = '25px';
-      this.cardService.temp.push(card);
+      this.cardService.cardViewTemp.push(card);
     }
-    console.log(this.cardService.temp);
-    this.documentService.checkValid(this.cardService.temp)
+    console.log(this.cardService.cardViewTemp);
+    this.documentService.checkValid(card)
   }
 }
