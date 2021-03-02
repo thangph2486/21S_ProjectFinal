@@ -36,7 +36,7 @@ export class ListcardComponent implements OnInit,OnDestroy {
     //Gui bai socket
 
     //neu socket tra ve true=>
-    
+
     for (let i = 0; i < this.cardService.cardViewTemp.length; i++) {
       let index = this.cardService.cardsOfUser.indexOf(this.cardService.cardViewTemp[i])
       this.cardService.cardsOfUser.splice(index, 1)

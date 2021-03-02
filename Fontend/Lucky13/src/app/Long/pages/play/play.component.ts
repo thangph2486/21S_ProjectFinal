@@ -21,7 +21,6 @@ export class PlayComponent implements OnInit {
     this.documentService.getSocketID()
   }
   letStart() {
-    this.cardDataService.isPlaying = true
     this.documentService.letStart()
   }
   ngOnDestroy() {

@@ -38,6 +38,6 @@ export class CardsComponent implements OnInit {
       this.cardService.cardViewTemp.push(card);
     }
     console.log(this.cardService.cardViewTemp);
-    this.documentService.checkValid(card)
+    //this.documentService.checkValid(card)
   }
 }
