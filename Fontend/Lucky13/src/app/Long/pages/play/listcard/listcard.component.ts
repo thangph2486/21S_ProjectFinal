@@ -43,16 +43,6 @@ export class ListcardComponent implements OnInit, OnDestroy {
 
   }
 
-
-
-
-
-  joinRoom() {
-    this.documentService.joinRoom()
-  }
-  startGame() {
-    this.documentService.letStart()
-  }
   newDoc() {
     this.documentService.newDocument();
   }

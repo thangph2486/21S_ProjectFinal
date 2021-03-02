@@ -79,6 +79,6 @@
   <app-countdown *ngIf="cardDataService.isPlaying"></app-countdown>
   <app-listshowcards *ngIf="cardDataService.isPlaying"></app-listshowcards>
 </div>
-<button *ngIf="!cardDataService.isPlaying" (click)="letStart()" style="position: absolute;top: 49%;left: 49%;">LET
-  START</button>
+<button *ngIf="!cardDataService.isPlaying" (click)="letStart()" style="position: absolute;top: 49%;left: 49%;">Bắt
+  đầu</button>
 <app-listcard *ngIf="cardDataService.isPlaying"></app-listcard>

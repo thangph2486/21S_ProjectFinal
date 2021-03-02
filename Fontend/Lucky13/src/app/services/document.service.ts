@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Socket } from 'ngx-socket-io';
 import { Document } from 'src/app/models/document.model';
 import { CardDataService } from './card-data.service';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -16,11 +17,14 @@ export class DocumentService {
   temp
 
   constructor(public socket: Socket, cardDataService: CardDataService) {
-    this.gameData.subscribe(event => cardDataService.cardsOfUser = event);
+    this.gameData.subscribe(event => {
+      console.log(event)
+      cardDataService.cardsOfUser = event
+    });
   }
 
   letStart() {
-    this.socket.emit('letStart', '');
+    this.socket.emit('letStart', 'r123');
   }
   getSocketID() {
     this.socket.on('getID', (id) => {
@@ -28,8 +32,16 @@ export class DocumentService {
     })
   }
 
-  joinRoom() {
-    this.socket.emit('join', "");
+  async joinRoom() {
+    await this.socket.emit('join', "r123");
+    this.socket.on('canJoin', function (res) {
+      if (res) {
+        this.router.navigate(["/play"]);
+      }
+      else {
+        console.log('Room [r123] is full')
+      }
+    });
   }
 
   getDocument(id: string) {
