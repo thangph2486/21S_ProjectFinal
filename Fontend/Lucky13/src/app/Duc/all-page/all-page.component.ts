@@ -15,4 +15,7 @@ export class AllPageComponent implements OnInit {
   joinRoom() {
     this.documentService.joinRoom()
   }
+  createRoom() {
+    this.documentService.createRoom()
+  }
 }

@@ -47,6 +47,19 @@ export class DocumentService {
     })
   }
 
+  createRoom() {
+    this.socket.emit('createRoom', "r124");
+    this.socket.on('canCreateRoom', e => {
+      console.log(e)
+      // if (e) {
+      //   this.router.navigate(['/play'])
+      // }
+      // else {
+      //   console.log('room [r123] is full!')
+      // }
+    })
+  }
+
   getDocument(id: string) {
     this.socket.emit('getDoc', id);
   }

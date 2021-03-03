@@ -105,22 +105,22 @@ io.on("connection", socket => {
 
 
 
-    socket.on("getDoc", docId => {
-        safeJoin(docId);
-        socket.emit("document", documents[docId]);
-    });
+    // socket.on("getDoc", docId => {
+    //     safeJoin(docId);
+    //     socket.emit("document", documents[docId]);
+    // });
 
-    socket.on("addDoc", doc => {
-        documents[doc.id] = doc;
-        safeJoin(doc.id);
-        io.emit("documents", Object.keys(documents));
-        //socket.emit("document", doc);
-    });
+    // socket.on("addDoc", doc => {
+    //     documents[doc.id] = doc;
+    //     safeJoin(doc.id);
+    //     io.emit("documents", Object.keys(documents));
+    //     //socket.emit("document", doc);
+    // });
 
-    socket.on("editDoc", doc => {
-        documents[doc.id] = doc;
-        socket.to(doc.id).emit("document", doc);
-    });
+    // socket.on("editDoc", doc => {
+    //     documents[doc.id] = doc;
+    //     socket.to(doc.id).emit("document", doc);
+    // });
 
     socket.on('disconnect', function () {
         //console.log(`User [${socket.id}] is disconnect.`)
@@ -142,6 +142,18 @@ io.on("connection", socket => {
         documents[doc.id] = doc;
     });
     //io.emit("documents", Object.keys(documents));
+
+    //Start ROOM
+    socket.on('createRoom', (newRoomID) => {
+        if (room[newRoomID] == null) {
+            socket.emit('canCreateRoom', true)
+        }
+        else {
+            socket.emit('canCreateRoom', false)
+        }
+    })
+    //End   ROOM
+
     a()
     io.emit("users", Object.keys(documents));
 
