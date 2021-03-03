@@ -17,6 +17,7 @@ table:hover {
   border: solid;
   text-align: center;
   font-size: 14pt;
+  background-color: rgb(82, 82, 82);
 }
 
 .divall{
@@ -59,4 +60,7 @@ section {
 }
 .img {
   width: 20px;
+}
+.div:hover {
+  box-shadow: 0 14px 18px 0 rgba(0, 0, 0, 0.4);
 }
