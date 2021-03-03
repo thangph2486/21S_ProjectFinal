@@ -15,6 +15,7 @@ const routes: Routes = [
   //Long
   { path: 'home', loadChildren: () => import('./Long/pages/home/home.module').then(m => m.HomeModule) },
   { path: 'play', loadChildren: () => import('./Long/pages/play/play.module').then(m => m.PlayModule) },
+  { path: 'info', loadChildren: () => import('./Thang/user-imfor/user-imfor.module').then(m => m.UserImforModule) },
 ];
 
 @NgModule({
