@@ -39,8 +39,8 @@ class CardsService {
         max++
         return Math.floor(Math.random() * (max - min) + min)
     }
-    falmOff(CARDS) {
-        let cartsTemp = CARDS
+    falmOff(card) {
+        let cartsTemp = card
         let min, max, arr1, arr2, arr3
 
         //Chẻ bài
@@ -113,7 +113,7 @@ class CardsService {
                 temp = cart13[i + 1]
             }
             length--
-        } while (length != 1)
+        } while (length != 0)
         return cart13
     }
     /**

@@ -3,6 +3,10 @@ import { Injectable } from '@angular/core';
 import { Socket } from 'ngx-socket-io';
 import { Document } from 'src/app/models/document.model';
 import { CardDataService } from './card-data.service';
+import { Router } from '@angular/router';
+import { eventNames } from 'process';
+import { observeOn } from 'rxjs/operators';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -11,25 +15,36 @@ export class DocumentService {
   currentDocument = this.socket.fromEvent<Document>('document');
   documents = this.socket.fromEvent<string[]>('documents');
   gameData = this.socket.fromEvent<string[]>('gameData');
-
+  canJoin: boolean
   socketID
   temp
 
-  constructor(public socket: Socket, cardDataService: CardDataService) {
-    this.gameData.subscribe(event => cardDataService.cardsOfUser = event);
+  constructor(public socket: Socket, cardDataService: CardDataService, private router: Router) {
+    this.gameData.subscribe(event => {
+      cardDataService.cardsOfUser = event
+      console.log(cardDataService.cardsOfUser)
+    });
   }
 
   letStart() {
-    this.socket.emit('letStart', '');
+    this.socket.emit('letStart', 'r123');
   }
   getSocketID() {
     this.socket.on('getID', (id) => {
       this.socketID = id
     })
   }
-
+  //hello() { console.log('lo CC') }
   joinRoom() {
-    this.socket.emit('join', "");
+    this.socket.emit('join', "r123");
+    this.socket.on('canJoin', e => {
+      if (e) {
+        this.router.navigate(['/play'])
+      }
+      else {
+        console.log('room [r123] is full!')
+      }
+    })
   }
 
   getDocument(id: string) {
@@ -54,5 +69,13 @@ export class DocumentService {
     }
 
     return text;
+  }
+
+  listen(eventName) {
+    return new Observable((sub) => {
+      this.socket.on(eventName, (data) => {
+        sub.next(data)
+      })
+    })
   }
 }
