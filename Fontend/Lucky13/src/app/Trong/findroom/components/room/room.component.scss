@@ -1,0 +1,66 @@
+table {
+  width: 100%;
+  flex-wrap: wrap;
+}
+table:hover {
+}
+.room1 {
+  text-align: center;
+  background-color: #C4C4C4;
+  font-size: 18pt;
+  border: solid;
+}
+.div1{
+  width: 30%;
+  height: 50px;
+  padding-top: 10px;
+  border: solid;
+  text-align: center;
+  font-size: 14pt;
+  background-color: rgb(82, 82, 82);
+}
+
+.divall{
+  display: flex;margin-left:11.5%;margin-top:1%;border-radius:10%;width:80%
+}
+// .divall:hover{
+//   box-shadow: 0 14px 18px 0 rgba(34, 33, 33, 0.4);
+
+// }
+section {
+  display: table;
+}
+
+.example-label {
+  display: table-cell;
+  font-size: 14px;
+  margin-left: 8px;
+  min-width: 120px;
+}
+
+.example-button-row {
+  display: table-cell;
+  width: 490px;
+}
+
+.example-button-row .mat-button-base {
+  margin: 8px 8px 8px 0;
+}
+
+.example-flex-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.example-button-container {
+  display: flex;
+  justify-content: center;
+  width: 120px;
+}
+.img {
+  width: 20px;
+}
+.div:hover {
+  box-shadow: 0 14px 18px 0 rgba(0, 0, 0, 0.4);
+}
