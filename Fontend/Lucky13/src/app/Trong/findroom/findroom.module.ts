@@ -7,16 +7,16 @@ import { NavFindroomComponent } from './components/nav-findroom/nav-findroom.com
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon'
 import { MatTableModule } from '@angular/material/table';
-import { RoomComponent } from './components/room/room.component';
 import { UserComponent } from './components/user/user.component';
 import { MatButtonModule } from '@angular/material/button';
 import { CreateRoomComponent } from './components/create-room/create-room.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
+import { ListroomComponent } from './components/listroom/listroom.component';
 
 @NgModule({
-  declarations: [FindroomComponent, NavFindroomComponent, RoomComponent, UserComponent, CreateRoomComponent],
+  declarations: [FindroomComponent, NavFindroomComponent, UserComponent, ListroomComponent, CreateRoomComponent],
   imports: [
     CommonModule,
     FindroomRoutingModule,
@@ -28,7 +28,8 @@ import { MatInputModule } from '@angular/material/input';
     MatFormFieldModule,
     FormsModule,
     ReactiveFormsModule,
-    MatInputModule
+    MatInputModule,
+    MatFormFieldModule
   ]
 })
 export class FindroomModule { }
