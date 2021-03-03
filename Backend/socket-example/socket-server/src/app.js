@@ -36,7 +36,6 @@ let users = {
 function a() {
     console.log('-------------------------------------------------------------------')
     console.log({ rooms: room })
-    console.log({ usersR123: room.r123.players })
     console.log({ users: users })
 }
 function getLength(obj) {
@@ -146,11 +145,19 @@ io.on("connection", socket => {
     //Start ROOM
     socket.on('createRoom', (newRoomID) => {
         if (room[newRoomID] == null) {
+            room[newRoomID] = {//Example
+                roomId: newRoomID,
+                players: [],
+                isPlaying: false,
+                playerFirstStart: '',
+                cardOut: []
+            }
             socket.emit('canCreateRoom', true)
         }
         else {
             socket.emit('canCreateRoom', false)
         }
+        a()
     })
     //End   ROOM
 

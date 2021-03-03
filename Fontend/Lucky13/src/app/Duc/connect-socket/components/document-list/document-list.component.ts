@@ -34,10 +34,10 @@ export class DocumentListComponent implements OnInit, OnDestroy {
     this._docSub.unsubscribe();
   }
 
-  joinRoom(){
-    this.documentService.joinRoom()
+  joinRoom(rid) {
+    this.documentService.joinRoom(rid)
   }
-  
+
 
   loadDoc(id: string) {
     this.documentService.getDocument(id);

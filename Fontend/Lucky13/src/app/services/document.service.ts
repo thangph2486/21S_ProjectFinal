@@ -35,28 +35,24 @@ export class DocumentService {
     })
   }
   //hello() { console.log('lo CC') }
-  joinRoom() {
-    this.socket.emit('join', "r123");
+  joinRoom(idRoom) {
+    this.socket.emit('join', idRoom);
     this.socket.on('canJoin', e => {
       if (e) {
         this.router.navigate(['/play'])
       }
       else {
-        console.log('room [r123] is full!')
+        console.log(`room [${idRoom}] is full!`)
       }
     })
   }
 
-  createRoom() {
-    this.socket.emit('createRoom', "r124");
+  createRoom(rid) {
+    this.socket.emit('createRoom', rid);
     this.socket.on('canCreateRoom', e => {
-      console.log(e)
-      // if (e) {
-      //   this.router.navigate(['/play'])
-      // }
-      // else {
-      //   console.log('room [r123] is full!')
-      // }
+      if (e) {
+        this.joinRoom(rid)
+      }
     })
   }
 
