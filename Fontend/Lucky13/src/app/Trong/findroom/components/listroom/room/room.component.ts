@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Room } from '../../../../../models/room.model';
 
 export interface PeriodicElement {
   name: string;
@@ -23,6 +24,9 @@ export class RoomComponent implements OnInit {
 
 
   constructor() { }
+  @Input()
+  room:Room;
+
 
   ngOnInit(): void {
   }

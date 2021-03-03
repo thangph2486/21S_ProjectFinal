@@ -7,12 +7,13 @@ import { NavFindroomComponent } from './components/nav-findroom/nav-findroom.com
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon'
 import {MatTableModule} from '@angular/material/table';
-import { RoomComponent } from './components/room/room.component';
+import { RoomComponent } from './components/listroom/room/room.component';
 import { UserComponent } from './components/user/user.component';
 import {MatButtonModule} from '@angular/material/button';
+import { ListroomComponent } from './components/listroom/listroom.component';
 
 @NgModule({
-  declarations: [FindroomComponent, NavFindroomComponent, RoomComponent, UserComponent],
+  declarations: [FindroomComponent, NavFindroomComponent, RoomComponent, UserComponent, ListroomComponent],
   imports: [
     CommonModule,
     FindroomRoutingModule,
