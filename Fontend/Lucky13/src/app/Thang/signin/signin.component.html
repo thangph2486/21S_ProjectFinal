@@ -46,18 +46,14 @@
           <div class="container" style="margin-top: 2%; width: 100%;" >
             <div style="margin-left: 20%;">
 
-              <input  type="text" placeholder="Enter ID" [(ngModel)]="ID" name="Id" required>
-
+              <input type="text" placeholder="Enter ID" [(ngModel)]="ID" name="Id"  required>
               <input type="password" placeholder="Enter PW" [(ngModel)]="PW" name="PW" required>
 
-              <input type="text" placeholder="Enter Name"  name="NAME" required>
-
-              <input type="text" placeholder="Enter Phone"  name="PHONE" required>
-
-              <input type="text" placeholder="Enter Email" name="email" required>
-
               <div class="clearfix">
-                <button (click)="login()" type="submit" class="signupbtn">SIGN UP</button>
+                <button (click)="loginNow()" type="submit" class="button1">SIGN IN</button>
+              </div>
+              <div>
+                <button (click)="login()" class="button2" ><img style="width: 25px;" src="../../../assets/google.png"></button>
               </div>
             </div>
           </div>

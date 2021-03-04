@@ -116,9 +116,9 @@
 //   border: none;
 // }
 
-* {
-  box-sizing: border-box;
-}
+// * {
+//   box-sizing: border-box;
+// }
 .column {
   float: left;
   padding: 10px;
@@ -170,17 +170,26 @@ input[type=password]{
 input[type=password]:focus, input[type=password]:focus {
   outline: none;
 }
-button {
+.button1 {
   background-color: black;
   color: white;
-  padding: 4%;
+  padding: 3.5%;
   margin: 2% 0;
   border-radius: 15px;
   width: 80%;
   font-size: 20pt;
 }
-button:hover {
+.button1:hover {
   background: rgb(143, 3, 3);
+}
+.button2 {
+  width: 50px;
+  height: 50px;
+  background-color: black;
+  border-radius: 25px;
+}
+.button2:hover{
+  background-color: white;
 }
 // .container {
 //   padding: 5px;
