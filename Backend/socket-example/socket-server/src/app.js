@@ -15,6 +15,13 @@ let room = {
         cardOut: []
     },
 }
+let roomForUser = {
+    r123: {//Example
+        roomId: 'r123',
+        playerNum: 0
+    }
+
+}
 let publicValue = {
     //user:['lzTxZn9vcWWzywXNAAA5', '0RbojUK4uC2XGgt5AAA4'],
     //outCard:[],
@@ -159,8 +166,9 @@ io.on("connection", socket => {
         }
         a()
     })
-    //End   ROOM
 
+    io.emit("rooms", room);
+    //End   ROOM
     a()
     io.emit("users", Object.keys(documents));
 
