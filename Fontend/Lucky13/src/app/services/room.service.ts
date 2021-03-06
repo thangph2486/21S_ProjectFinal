@@ -8,15 +8,15 @@ import { Router } from '@angular/router';
 import { eventNames } from 'process';
 import { observeOn } from 'rxjs/operators';
 import { Observable } from 'rxjs';
-import { Room } from '../models/room.model'
+import { Rooms } from '../models/rooms.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class RoomService {
-  rooms: Array<Room>
+  rooms: Array<Rooms>
   isChange = ''
   constructor() {
-    this.rooms = new Array<Room>()
+    this.rooms = new Array<Rooms>()
   }
 }
