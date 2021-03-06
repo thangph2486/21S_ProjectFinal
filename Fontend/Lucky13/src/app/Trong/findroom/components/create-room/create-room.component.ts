@@ -13,7 +13,6 @@ export class CreateRoomComponent {
 
   constructor(
     public dialogRef: MatDialogRef<CreateRoomComponent>,
-    //public documentService: DocumentService
     @Inject(MAT_DIALOG_DATA) public data: DialogData
   ) {
 
@@ -22,10 +21,4 @@ export class CreateRoomComponent {
   onNoClick(): void {
     this.dialogRef.close();
   }
-  // async createRoom(rid) {
-  //   if (rid == '') {
-  //     console.log(rid)
-  //     //let res = await this.documentService.createRoom(rid)
-  //   }
-  // }
 }

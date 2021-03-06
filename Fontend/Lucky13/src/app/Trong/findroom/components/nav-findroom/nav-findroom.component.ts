@@ -3,6 +3,7 @@ import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dial
 import { from } from 'rxjs';
 import { DocumentService } from 'src/app/services/document.service';
 import { CreateRoomComponent } from '../create-room/create-room.component'
+import { GetRoomComponent } from '../get-room/get-room.component';
 
 export interface DialogData {
   animal: string;
@@ -31,7 +32,7 @@ export class NavFindroomComponent {
 
   openDialog(): void {
     const dialogRef = this.dialog.open(CreateRoomComponent, {
-      width: '250px',
+      width: '280',
       data: { name: this.name, animal: this.animal }
     });
 
@@ -41,5 +42,16 @@ export class NavFindroomComponent {
       }
     });
   }
+  openDialogJoin() {
+    const dialogRef = this.dialog.open(GetRoomComponent, {
+      width: '280',
+      data: { name: this.name, animal: this.animal }
+    });
 
+    dialogRef.afterClosed().subscribe(result => {
+      if (result != undefined) {
+        this.documentService.joinRoom(result)
+      }
+    });
+  }
 }

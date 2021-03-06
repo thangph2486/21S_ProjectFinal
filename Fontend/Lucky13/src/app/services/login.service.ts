@@ -1,14 +1,20 @@
 import { Injectable } from '@angular/core';
-import { Router } from '@angular/router';
+import { AngularFireAuth } from '@angular/fire/auth';
 
 @Injectable({
   providedIn: 'root',
 })
 export class LoginService {
-  constructor(public router: Router) {}
-  public user = null;
-
-  getUser(user) {
-    return (this.user = user);
+  public user;
+  constructor(private afAuth: AngularFireAuth) {
+    this.afAuth.authState.subscribe((user) => {
+      if (user) {
+        this.user = user;
+        localStorage.setItem('user', JSON.stringify(this.user));
+        console.log('login success! ' + this.user.displayName);
+      } else {
+        localStorage.setItem('user', null);
+      }
+    });
   }
 }

@@ -4,6 +4,7 @@ import { DocumentService } from 'src/app/services/document.service';
 import { RoomService } from 'src/app/services/room.service';
 import { Room } from '../../../../../models/room.model';
 import { CreateRoomComponent } from '../../create-room/create-room.component';
+import { JoinRoomComponent } from '../../join-room/join-room.component';
 
 export interface PeriodicElement {
   name: string;
@@ -42,16 +43,15 @@ export class RoomComponent implements OnInit {
   animal: string;
   name: string;
   openDialogJoin() {
-    const dialogRef = this.dialog.open(CreateRoomComponent, {
-      width: '250px',
-      data: { name: this.name, animal: this.animal }
+    const dialogRef = this.dialog.open(JoinRoomComponent, {
+      width: '280px',
+      data: { name: this.room.roomId, animal: this.animal }
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log(result)
-      // if (result != undefined) {
-      //   this.documentService.createRoom(result)
-      // }
+      if (result != undefined) {
+        this.documentService.joinRoom(this.room.roomId)
+      }
     });
   }
 

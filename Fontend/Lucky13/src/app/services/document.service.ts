@@ -7,6 +7,9 @@ import { Router } from '@angular/router';
 import { eventNames } from 'process';
 import { observeOn } from 'rxjs/operators';
 import { Observable } from 'rxjs';
+import { RoomService } from './room.service';
+import { keyframes } from '@angular/animations';
+import { Room } from '../models/room.model'
 
 @Injectable({
   providedIn: 'root'
@@ -15,14 +18,38 @@ export class DocumentService {
   currentDocument = this.socket.fromEvent<Document>('document');
   documents = this.socket.fromEvent<string[]>('documents');
   gameData = this.socket.fromEvent<string[]>('gameData');
+  roomData = this.socket.fromEvent<string[]>('rooms');
   canJoin: boolean
   socketID
   temp
 
-  constructor(public socket: Socket, cardDataService: CardDataService, private router: Router) {
+  constructor(
+    public socket: Socket,
+    cardDataService: CardDataService,
+    private router: Router,
+    private roomService: RoomService
+  ) {
     this.gameData.subscribe(event => {
       cardDataService.cardsOfUser = event
       console.log(cardDataService.cardsOfUser)
+    });
+
+    this.roomData.subscribe(event => {
+      let b = ''
+      for (let i in event) {
+        b += event[i]['roomId'] + event[i]['playerNum']
+      }
+      if (this.roomService.isChange != b) {
+        this.roomService.isChange = ''
+        this.roomService.rooms = new Array<Room>()
+        for (let i in event) {
+          let a = new Room()
+          a.roomId = event[i]['roomId']
+          a.playerNum = event[i]['playerNum']
+          this.roomService.isChange += event[i]['roomId'] + event[i]['playerNum']
+          this.roomService.rooms.push(a)
+        }
+      }
     });
   }
 
@@ -38,10 +65,13 @@ export class DocumentService {
   joinRoom(idRoom) {
     this.socket.emit('join', idRoom);
     this.socket.on('canJoin', e => {
-      if (e) {
+      if (e == true) {
         this.router.navigate(['/play'])
       }
-      else {
+      else if (e == 'not found') {
+        console.log(`room [${idRoom}] is not found!`)
+      }
+      else if (e == false) {
         console.log(`room [${idRoom}] is full!`)
       }
     })

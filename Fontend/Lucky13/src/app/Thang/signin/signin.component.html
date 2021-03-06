@@ -1,37 +1,31 @@
-
 <div>
-    <div class="row">
-      <div class="column side">
-        <p class="solid">
-          <img class="labai" src="../../../assets/81s2XQV0L7L._AC_SL1500_.jpg" alt="ro">
-        </p>
-      </div>
-      <div class="column side1">
-          <div>
-              <img class="logo" src="../../../assets/152400626_895752037847907_7072356985460831357_n (1).png" alt="logo">
-            <div class="container">
-              <div style="margin-left: 20%;">
-                  <input type="text" placeholder="Enter ID" [(ngModel)]="ID" name="Id"  required>
-                  <input type="password" placeholder="Enter PW" [(ngModel)]="PW" name="PW" required>
-                <div>
-                  <button (click)="loginNow() ">SIGN IN</button> 
-                  <div class="center" style="margin-left: 19%;">
-                      <span>Or Use Another Acount </span>
-                  </div>
-                  <button (click)="login()">Login with Google</button>
-                  <div>
-                      <button id="bt1" routerLink = "/signup" >register</button>
-                      <!-- <a routerLink="/signup">register</a> -->
-                  </div>
-                </div>
+  <div class="row">
+    <div class="column side">
+      <p class="solid">
+        <img class="labai" src="../../../assets/81s2XQV0L7L._AC_SL1500_.jpg" alt="ro">
+      </p>
+    </div>
+    <div class="column side1">
+      <div>
+        <img class="logo" src="../../../assets/152400626_895752037847907_7072356985460831357_n (1).png" alt="logo">
+        <div class="container">
+          <div style="margin-left: 20%;">
+            <input type="text" placeholder="Enter ID" name="Id" required>
+            <input type="password" placeholder="Enter PW" name="PW" required>
+            <div>
+              <button (click)="login()">SIGN IN</button>
+              <div class="center" style="margin-left: 19%;">
+                <span>Or Use Another Acount </span>
+              </div>
+              <button (click)="loginWithGG()">Login with Google</button>
+              <div>
+                <button id="bt1" routerLink="/signup">register</button>
+                <!-- <a routerLink="/signup">register</a> -->
               </div>
             </div>
           </div>
+        </div>
       </div>
     </div>
   </div>
-
-
-
-
-  
+</div>

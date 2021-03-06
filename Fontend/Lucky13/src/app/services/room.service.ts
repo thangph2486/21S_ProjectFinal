@@ -8,19 +8,15 @@ import { Router } from '@angular/router';
 import { eventNames } from 'process';
 import { observeOn } from 'rxjs/operators';
 import { Observable } from 'rxjs';
+import { Room } from '../models/room.model'
 
 @Injectable({
   providedIn: 'root'
 })
 export class RoomService {
-  gameData = this.socket.fromEvent<string[]>('gameData');
-  rooms = []
-  constructor(public socket: Socket, cardDataService: CardDataService, private router: Router) {
-    this.gameData.subscribe(event => {
-      cardDataService.cardsOfUser = event
-      console.log(cardDataService.cardsOfUser)
-    });
+  rooms: Array<Room>
+  isChange = ''
+  constructor() {
+    this.rooms = new Array<Room>()
   }
-
-
 }

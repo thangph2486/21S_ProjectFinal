@@ -13,7 +13,7 @@ export class JoinRoomComponent {
 
   constructor(
     public dialogRef: MatDialogRef<JoinRoomComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: DialogData
+    @Inject(MAT_DIALOG_DATA) public data: DialogData,
   ) {
 
   }

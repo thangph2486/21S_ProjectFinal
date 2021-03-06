@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ConnectSocketComponent } from './connect-socket.component';
+import { GetRoomComponent } from './get-room.component';
 
-describe('ConnectSocketComponent', () => {
-  let component: ConnectSocketComponent;
-  let fixture: ComponentFixture<ConnectSocketComponent>;
+describe('GetRoomComponent', () => {
+  let component: GetRoomComponent;
+  let fixture: ComponentFixture<GetRoomComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ConnectSocketComponent ]
+      declarations: [ GetRoomComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ConnectSocketComponent);
+    fixture = TestBed.createComponent(GetRoomComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

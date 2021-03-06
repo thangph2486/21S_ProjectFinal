@@ -1,4 +1,3 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { FindroomRoutingModule } from './findroom-routing.module';
@@ -17,9 +16,12 @@ import { MatButtonModule } from '@angular/material/button';
 import { ListroomComponent } from './components/listroom/listroom.component';
 import { MatRippleModule } from '@angular/material/core';
 import { JoinRoomComponent } from './components/join-room/join-room.component';
+import { NgModule } from '@angular/core';
+import { GetRoomComponent } from './components/get-room/get-room.component';
+
 
 @NgModule({
-  declarations: [CreateRoomComponent, FindroomComponent, NavFindroomComponent, RoomComponent, UserComponent, ListroomComponent, JoinRoomComponent],
+  declarations: [CreateRoomComponent, FindroomComponent, NavFindroomComponent, RoomComponent, UserComponent, ListroomComponent, JoinRoomComponent, GetRoomComponent],
   imports: [
     CommonModule,
     FindroomRoutingModule,
@@ -33,6 +35,6 @@ import { JoinRoomComponent } from './components/join-room/join-room.component';
     ReactiveFormsModule,
     MatInputModule,
     MatRippleModule,
-  ]
+  ],
 })
 export class FindroomModule { }
