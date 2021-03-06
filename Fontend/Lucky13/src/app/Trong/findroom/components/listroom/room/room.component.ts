@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { Rooms } from 'src/app/models/rooms.model';
 import { DocumentService } from 'src/app/services/document.service';
 import { RoomService } from 'src/app/services/room.service';
 import { Room } from '../../../../../models/room.model';
@@ -35,7 +36,7 @@ export class RoomComponent implements OnInit {
 
   ) { }
   @Input()
-  room: Room;
+  room: Rooms;
 
 
   ngOnInit(): void {

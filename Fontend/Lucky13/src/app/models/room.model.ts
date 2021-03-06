@@ -1,6 +1,8 @@
 export class Room {
-  roomId: string;
-  name: string;
-  coin: number;
-  playerNum: any;
+    roomId: string;
+    players: Array<any>;
+    isPlaying: boolean;
+    playerFirstStart: string;
+    cardOut: Array<any>;
+    firstCardOut: boolean;
 }
