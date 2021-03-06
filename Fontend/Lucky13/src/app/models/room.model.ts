@@ -1,6 +1,6 @@
-export interface Room {
-  id: number;
-  name: String;
+export class Room {
+  roomId: string;
+  name: string;
   coin: number;
-  person: number;
+  playerNum: any;
 }
