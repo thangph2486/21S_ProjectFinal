@@ -1,37 +1,41 @@
+<div style="width: 100%; height: 100%; background-color: #eeeeee  ;">
+  <div>
+  </div>
+  <div class="row">
+    <div class="column side">
+      <img class="labai" src="../../../assets/w.jpg">
+    </div>
+    <div class="column side">
+      <div>
+        <div>
+          <img class="logo" src="../../../assets/logo-removebg-preview.png" alt="logo">
+        </div>
+        <h1 style="margin-left: 25%; font-size: 2vw;color: black;"> <strong>Welcome To You !!!</strong></h1>
+        <div class="container" style="margin-top: 2%; width: 100%;">
+          <div style="margin-left: 20%;">
 
-<div>
-    <div class="row">
-      <div class="column side">
-        <p class="solid">
-          <img class="labai" src="../../../assets/152709564_1300261807025059_1192142188484005047_n (1).png" alt="ro">
-        </p>
-      </div>
-      <div class="column side1">
-          <div>
-              <img class="logo" src="../../../assets/152400626_895752037847907_7072356985460831357_n (1).png" alt="logo">
-            <div class="container">
-              <div style="margin-left: 20%;">
-                  <input type="text" placeholder="Enter ID" [(ngModel)]="ID" name="Id"  required>
-                  <input type="password" placeholder="Enter PW" [(ngModel)]="PW" name="PW" required>
-                <div>
-                  <button (click)="loginNow() ">SIGN IN</button> 
-                  <div class="center" style="margin-left: 19%;">
-                      <span>Or Use Another Acount </span>
-                  </div>
-                  <button (click)="login()">Login with Google</button>
-                  <div>
-                      <button id="bt1" routerLink = "/signup" >register</button>
-                      <!-- <a routerLink="/signup">register</a> -->
-                  </div>
-                </div>
-              </div>
+            <input type="text" placeholder="Enter ID" [(ngModel)]="ID" name="Id" required>
+            <input type="password" placeholder="Enter PW" [(ngModel)]="PW" name="PW" required>
+
+            <div class="clearfix">
+              <button type="submit" class="button1">Sign in</button>
+              <!-- click -->
             </div>
+            <div>
+              <!-- <button  class="button2" ><img style="width: 25px;" src="../../../assets/google.png"></button> -->
+              <button style="background-color: #CF4332;" type="submit" class="button2" (click)="loginWithGG()">Sign in
+                with Google</button>
+              <!-- click -->
+            </div>
+            <div style="margin-top: 2.5%;">
+              <a href=""
+                style="margin-left: 5%; margin-top: 5%; color: cornflowerblue; font-size: 1.5vw; margin-top: 10px;">
+                <i>Do not have an account ?</i> </a>
+            </div>
+
           </div>
+        </div>
       </div>
     </div>
   </div>
-
-
-
-
-  
+</div>
