@@ -1,117 +1,107 @@
-* {
-  box-sizing: border-box;
-}
+
 .column {
   float: left;
   padding: 10px;
 }
-.column.side1 {
+.column.side {
   width: 50%;
-  margin-top: -75px;
-  margin-left: 100px;
 }
 .row:after {
   content: "";
   display: table;
   clear: both;
 }
-@media screen and (max-width: 600px) {
-    .column.side, .column.middle {
-  width: 100%;
-  }
-}
+
 #div1 {
   display: flex;
 
 }
-p.solid { border-radius: 5%;border-style: solid; width: 35vw; ;height: 45vw; margin-left: 15%; margin-top: 5%; background-color: #C4C4C4 ; }
-.cl-ty { border: black;border-style: solid; border-radius: 5%;}
-body {font-family: Arial, Helvetica, sans-serif;}
+body {font-family: Arial, Helvetica, sans-serif;  }
 * {box-sizing: border-box}
 input[type=text]{
-  width: 65%;
-  padding: 25px;
-  margin: 5px 0 10px 0;
+  width: 35vw;
+  padding: 3%;
+  margin: 0px 0 10px 0;
   display: inline-block;
   border: none;
   border-radius: 15px;
-  background: #C4C4C4;
-}
+  background: white;
+  border: solid 0.1px;
 
-input[type=password]{
-  width: 65%;
-  padding: 25px;
-  margin: 5px 0 10px 0;
-  display: inline-block;
-  border: none;
-  border-radius: 15px;
-  background: #C4C4C4;
 }
-
 input[type=text]:focus, input[type=password]:focus {
-  background-color: #ddd;
   outline: none;
 }
-button {
-  background-color: black;
-  color: white;
-  padding: 25px;
-  margin: 25px 0;
+input[type=password]{
+  width: 35vw;
+  padding: 3%;
+  margin: 0px 0 10px 0;
+  display: inline-block;
   border: none;
   border-radius: 15px;
-  cursor: pointer;
-  width: 65%;
-  opacity: 0.9;
-  font-size: 15pt;
+  background: white;
+  border: solid 0.2px;
 }
 
-// a{
+input[type=password]:focus, input[type=password]:focus {
+  outline: none;
+}
+.button1 {
+  background-color: black;
+  color: white;
+  padding: 2.5%;
+  margin: 0.5% 0;
+  border-radius: 15px;
+  width: 35vw;
+  font-size: 1.5vw;
+}
+
+.button2 {
+  background-color: rgb(146, 3, 3);
+  color: white;
+  padding: 2.5%;
+  margin: 0.5% 0;
+  border-radius: 15px;
+  width: 35vw;
+  font-size: 1.5vw;
+
+}
+// .button2 {
+//   width: 50px;
+//   height: 50px;
 //   background-color: black;
-//   color: white;
-//   padding: 25px;
-//   margin: 25px 0;
-//   border: none;
-//   border-radius: 15px;
-//   cursor: pointer;
-//   width: 65%;
-//   opacity: 0.9;
-//   font-size: 15pt;
+//   border-radius: 50px;
+//   margin-left: 60%;
+//   margin-top: -150px;
 // }
-button:hover {
-  opacity:1;
-}
-.container {
-  padding: 5px;
-}
+
+// .container {
+//   padding: 5px;
+//   margin-top: -3%;
+// }
 .clearfix::after {
   content: "";
   clear: both;
   display: table;
 }
-@media screen and (max-width: 300px) {
-  .cancelbtn, .signupbtn {
-     width: 100%;
-  }
-}
+
+// .signupbtn:focus{
+//   border: none;
+
+// }
+
+
 .logo {
   padding: 5px;
   width: 15vw;
-  margin-left: 30%;
-  margin-top: 10%;
+  margin-left: 40%;
+  margin-top: 5%
 }
 .labai {
-  width: 70%;
-  margin-top: 40%;
-  margin-left: 15%;
-}
-div class :right{
-  font-size: large;
+  width: 40vw;
+  margin-top: 10%;
+  margin-left: 25%;
+  border-radius: 10%;
 }
 
-#bt1{
-  margin-top: -15px;
-}
 
-#bt1:focus{
-  border: none;
-}

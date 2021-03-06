@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { EmojiComponent } from './emoji.component';
+import { SoundsComponent } from './sounds.component';
 
-describe('EmojiComponent', () => {
-  let component: EmojiComponent;
-  let fixture: ComponentFixture<EmojiComponent>;
+describe('SoundsComponent', () => {
+  let component: SoundsComponent;
+  let fixture: ComponentFixture<SoundsComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ EmojiComponent ]
+      declarations: [ SoundsComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(EmojiComponent);
+    fixture = TestBed.createComponent(SoundsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
