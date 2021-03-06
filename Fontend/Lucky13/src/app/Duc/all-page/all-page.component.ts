@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DocumentService } from 'src/app/services/document.service';
 
 @Component({
   selector: 'app-all-page',
@@ -7,9 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AllPageComponent implements OnInit {
 
-  constructor() { }
+  constructor(public documentService: DocumentService) { }
 
   ngOnInit(): void {
   }
-
+  joinRoom() {
+    this.documentService.joinRoom()
+  }
 }
