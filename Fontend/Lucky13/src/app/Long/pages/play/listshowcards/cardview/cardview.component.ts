@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Socket } from 'ngx-socket-io';
 import { Card, OutCard } from 'src/app/models/card.model';
 import { CardDataService } from 'src/app/services/card-data.service';
 
@@ -8,8 +9,8 @@ import { CardDataService } from 'src/app/services/card-data.service';
   styleUrls: ['./cardview.component.scss']
 })
 export class CardviewComponent implements OnInit {
-  constructor(private cardService: CardDataService) { }
-
+  constructor(private cardService: CardDataService,) { }
+  
   ngOnInit(): void { }
   @Input()
   card: Card;

@@ -1,5 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Observable, Subscription } from 'rxjs';
+import { User } from 'src/app/models/user.model';
 
 import { DocumentService } from 'src/app/services/document.service';
 
@@ -13,20 +14,21 @@ export class DocumentListComponent implements OnInit, OnDestroy {
   currentDoc: string;
   private _docSub: Subscription;
 
-  dataGame: Observable<string[]>;
+  dataGame: Observable<User>;
 
 
   constructor(private documentService: DocumentService) { }
 
   ngOnInit() {
-    this.documents = this.documentService.documents;
+    // this.documents = this.documentService.documents;
 
-    this.dataGame = this.documentService.gameData;
-    this._docSub = this.documentService.currentDocument.subscribe(
-      doc => {
-        this.currentDoc = doc.id
-      }
-    );
+    // this.dataGame = this.documentService.gameData;
+    // console.log(this.dataGame)
+    // this._docSub = this.documentService.currentDocument.subscribe(
+    //   doc => {
+    //     this.currentDoc = doc.id
+    //   }
+    // );
 
   }
 

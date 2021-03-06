@@ -33,6 +33,8 @@ class CardsService {
 
         return array;
     }
+
+
     shuffleArray(array) {
         for (var i = array.length - 1; i > 0; i--) {
             var numRan = this.getRandom(0, i)
@@ -97,9 +99,8 @@ class CardsService {
      */
     isValid(playerDeck, cards) {
         let isValid = false;
-        console.log(cards.length)
+
         for (let i = 0; i < cards.length; i++) {
-            console.log(playerDeck.length)
             if (playerDeck.indexOf(cards[i]) != -1) {
                 isValid = true;
             } else {
@@ -207,7 +208,7 @@ class CardsService {
      * @param {Array} playerCarts 
      * 
      */
-    quickTake(arrInput, playerCarts, cartIndex1, cartIndex2) {
+    quickTake(arrInput, playerCarts, cartIndex1) {
         let res = []
         let cart1IsGreater = isGreater(playerCarts[cartIndex1], arrInput[0])
         if (arrInput.length <= playerCarts.length) {
