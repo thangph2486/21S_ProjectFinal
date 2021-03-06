@@ -19,7 +19,7 @@
 body {font-family: Arial, Helvetica, sans-serif;  }
 * {box-sizing: border-box}
 input[type=text]{
-  width: 80%;
+  width: 35vw;
   padding: 3%;
   margin: 0px 0 10px 0;
   display: inline-block;
@@ -33,7 +33,7 @@ input[type=text]:focus, input[type=password]:focus {
   outline: none;
 }
 input[type=password]{
-  width: 80%;
+  width: 35vw;
   padding: 3%;
   margin: 0px 0 10px 0;
   display: inline-block;
@@ -49,26 +49,32 @@ input[type=password]:focus, input[type=password]:focus {
 .button1 {
   background-color: black;
   color: white;
-  padding: 3.5%;
-  margin: 2% 0;
+  padding: 2.5%;
+  margin: 0.5% 0;
   border-radius: 15px;
-  width: 80%;
-  font-size: 20pt;
+  width: 35vw;
+  font-size: 1.5vw;
 }
-.button1:hover {
-  background: rgb(143, 3, 3);
-}
+
 .button2 {
-  width: 50px;
-  height: 50px;
-  background-color: black;
-  border-radius: 25px;
-  margin-left: 60%;
-  margin-top: -150px;
+  background-color: rgb(146, 3, 3);
+  color: white;
+  padding: 2.5%;
+  margin: 0.5% 0;
+  border-radius: 15px;
+  width: 35vw;
+  font-size: 1.5vw;
+
 }
-.button2:hover{
-  background-color: white;
-}
+// .button2 {
+//   width: 50px;
+//   height: 50px;
+//   background-color: black;
+//   border-radius: 50px;
+//   margin-left: 60%;
+//   margin-top: -150px;
+// }
+
 // .container {
 //   padding: 5px;
 //   margin-top: -3%;
@@ -87,22 +93,15 @@ input[type=password]:focus, input[type=password]:focus {
 
 .logo {
   padding: 5px;
-  width: 30%;
-  margin-left: 36%;
-  margin-top: 1%;
+  width: 15vw;
+  margin-left: 40%;
+  margin-top: 5%
 }
 .labai {
-  width: 80%;
+  width: 40vw;
   margin-top: 10%;
   margin-left: 25%;
   border-radius: 10%;
 }
 
-.btnback{
-  height: 60px;
-  width: 60px;
-  position: absolute;
-  margin-left: 3%;
-  margin-top: 2.5%;
-  border-radius: 50%;
-}
+
