@@ -2,13 +2,14 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { AngularFireAuth } from '@angular/fire/auth';
 import * as firebase from 'firebase/app';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
 
-  constructor(private httpClient: HttpClient, private auth: AngularFireAuth) {
+  constructor(private httpClient: HttpClient, private auth: AngularFireAuth, private router: Router) {
     this.user = JSON.parse(localStorage.getItem('user'))
     console.log(this.user)
     this.auth.authState.subscribe((user) => {
@@ -27,7 +28,9 @@ export class UserService {
     await this.auth.signInWithPopup(
       new firebase.default.auth.GoogleAuthProvider()
     ).then(e => {
-      console.log(e)
+      if (e) {
+        this.router.navigate(['/']);
+      }
     })
   }
 

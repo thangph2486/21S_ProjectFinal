@@ -44,7 +44,6 @@ function a() {
     console.log({ users: users })
 }
 
-
 const documents = {};
 
 io.on("connection", (socket) => {

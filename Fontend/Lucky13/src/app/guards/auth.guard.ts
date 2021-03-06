@@ -37,12 +37,12 @@ export class AuthGuard
       this.auS.getCurrentUser().then(
         (user) => {
           console.log({ AuthGuard: true });
-          this.router.navigate(['/home']);
           resolve(true);
         },
         (err) => {
           console.log({ AuthGuard: false });
           resolve(false);
+          this.router.navigate(['']);
         }
       );
     });
