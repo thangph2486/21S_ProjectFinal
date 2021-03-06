@@ -9,7 +9,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 const config: SocketIoConfig = { url: 'http://localhost:3000', options: {} };
 import { HttpClientModule } from '@angular/common/http';
-import { EmojiComponent } from './Trong/emoji/emoji.component';
+import { CountdownComponent } from './Long/pages/play/countdown/countdown.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSliderModule } from '@angular/material/slider';

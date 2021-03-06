@@ -63,9 +63,9 @@ export class UserService {
 
   getCurrentUser() {
     return new Promise<any>((resolve, reject) => {
-      var user = this.auth.onAuthStateChanged(function (user) {
-        if (user) {
-          resolve(user);
+      this.auth.onAuthStateChanged(function (e) {
+        if (e) {
+          resolve(e);
         } else {
           reject('No user logged in');
         }
