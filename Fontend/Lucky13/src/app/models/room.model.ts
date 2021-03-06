@@ -6,3 +6,4 @@ export class Room {
     cardOut: Array<any>;
     firstCardOut: boolean;
 }
+

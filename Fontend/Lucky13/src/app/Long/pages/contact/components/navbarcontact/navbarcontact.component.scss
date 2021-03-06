@@ -1,0 +1,112 @@
+* {
+  margin: 0%;
+  padding: 0%;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  font-weight: bold;
+}
+
+header {
+  position: relative;
+  display: flex;
+  top: -7%;
+  left: 0%;
+  transition: 0.6s;
+  -webkit-transition: 0.6s;
+  -moz-transition: 0.6s;
+  -ms-transition: 0.6s;
+  -o-transition: 0.6s;
+  z-index: 100000;
+}
+
+header ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+header ul li {
+  list-style: none;
+}
+
+header ul li a {
+  text-decoration: none;
+  white-space: nowrap;
+  color: black;
+  letter-spacing: 2px;
+  font-weight: 500px;
+  transition: 0.6s;
+  font-size: 20px;
+  -webkit-transition: 0.6s;
+  -moz-transition: 0.6s;
+  -ms-transition: 0.6s;
+  -o-transition: 0.6s;
+}
+
+header ul li a:hover,
+header.sticky ul li a:hover {
+  color: #006eff;
+}
+
+header ul li a:focus {
+  color: #006eff;
+  padding: 5px;
+  border-color: #006eff;
+  border-bottom: solid 2px;
+}
+
+header ul li a:active {
+  color: #006eff;
+  padding: 5px;
+  border-color: #006eff;
+  border-bottom: solid 2px;
+}
+
+header ul div li a:focus {
+  border: none;
+}
+
+// @import url(https://fonts.googleapis.com/css?family=Fira+Sans:100,300,400);
+
+@mixin hover-active() {
+  &:hover,
+  &:active {
+    @content;
+  }
+}
+
+#user {
+  position: relative;
+  display: flex;
+  top: 0vh;
+  left: 0vh;
+  font-weight: 700;
+  text-decoration: none;
+  font-size: 20px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  transition: 0.6s;
+  background-image: linear-gradient(to right, #f05a28, #ec008c, #f05a28);
+  background-size: 300% 100%;
+  transition: all 0.5s ease-in-out;
+  opacity: 1;
+  padding: 16px 32px;
+  line-height: 1.1;
+  white-space: nowrap;
+  border-radius: 8px;
+  color: #fff;
+  z-index: 1;
+  @include hover-active() {
+    background-position: -50% 0;
+  }
+}
+
+@media only screen and (max-width: 950px) {
+  header {
+    position: relative;
+  }
+
+  header ul li a {
+    font-size: 1rem;
+  }
+}
