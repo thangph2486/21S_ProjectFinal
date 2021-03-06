@@ -28,7 +28,7 @@ io.on("connection", socket => {
                 safeJoin('123')
                 
             }else{
-
+                console.log('full')
             } 
         });
        
@@ -79,6 +79,6 @@ io.on("connection", socket => {
 
 });
 
-http.listen(3000, '0.0.0.0', () => {
+http.listen(3000, () => {
     console.log('listening on *:3000');
 });
