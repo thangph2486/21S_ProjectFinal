@@ -1,7 +1,7 @@
 <div>
   <div style=" position: absolute; bottom: 24%; width: 100%; ">
-    <button style="margin-left: 20%;" (click)="removeCard()" class="button button1">Đánh</button>
-    <button style="margin-left: 1%;" (click)="clearCard()" class="button button2">Bỏ Lượt</button>
+    <button style="margin-left: 20%;" (click)="removeCard()" class="button button1">Play</button>
+    <button style="margin-left: 1%;" (click)="clearCard()" class="button button2">Pass</button>
   </div>
   <div style="margin-top: 630px; position: absolute; bottom: 0%; width: 100%; text-align: center;">
     <app-cards *ngFor='let card of dataGame | async' [card]="card"></app-cards>

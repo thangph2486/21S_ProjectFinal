@@ -47,14 +47,15 @@ export class ListcardComponent implements OnInit,OnDestroy {
   }
 
 
-  ngOnInit(): void {
-    this.dataGame = this.cardService.gameData;
+  // ngOnInit(): void {
+  //   this.dataGame = this.cardService.gameData;
 
-  }
+  // }
 
   removeCard() {
     //xoa bai
     this.cardService.tempPush = [];
+    console.log(this.cardService.cards)
     for (let i = 0; i < this.cardService.temp.length; i++) {
       let index = this.cardService.cards.indexOf(this.cardService.temp[i]);
       this.cardService.cards.splice(index, 1);

@@ -7,11 +7,14 @@ import { AppComponent } from './app.component';
 import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
 import {MatButtonModule} from '@angular/material/button';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-const config: SocketIoConfig = { url: '0.0.0.0:3000', options: {} };
+const config: SocketIoConfig = { url: 'http://localhost:3000', options: {} };
 
 import { HttpClientModule } from '@angular/common/http';
 import { EmojiComponent } from './Trong/emoji/emoji.component';
 import { CountdownComponent } from './Long/pages/play/countdown/countdown.component';
+import {MatIconModule} from '@angular/material/icon';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatCardModule} from '@angular/material/card';
 
 @NgModule({
   declarations: [
@@ -27,6 +30,9 @@ import { CountdownComponent } from './Long/pages/play/countdown/countdown.compon
     SocketIoModule.forRoot(config),
     MatButtonModule,
     ReactiveFormsModule,
+    MatIconModule,
+    BrowserAnimationsModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -45,15 +45,12 @@ export class UserService {
   }
 
   async login(uid,password) {
-    await this.httpClient
+      return await this.httpClient
       .post('http://127.0.0.1:7009/login',{
           uid: uid,
           password: password
       })
       .toPromise()
-      .then((e) => {
-        console.log(e);
-      });
     //console.log(this.data)
   }
 }

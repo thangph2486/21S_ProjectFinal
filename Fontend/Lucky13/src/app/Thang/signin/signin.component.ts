@@ -23,41 +23,53 @@ export class SigninComponent implements OnInit {
     const provider = new firebase.default.auth.GoogleAuthProvider();
     try {
       await this.auth.signInWithPopup(provider);
-      console.log(this.user.uid);
-      if (this.user != null) {
-        // await this.userService.createUser(
-        //   this.user.displayName,
-        //   this.user.email,
-        //   this.user.photoURL,
-        //   this.user.uid,
-        //   '',
-        //   ''
-        // );
-        // alert('dang nhap thanh cong');
-        
-      }
+      alert('Login successful');
       this.router.navigate(['homeLogin']);
       this.userService.user = this.user;
-      
     } catch (err) {
-      alert('loi');
+      alert('error');
     }
   }
+
+  // console.log(this.user.uid);
+  // if (this.user != null) {
+  // await this.userService.createUser(
+  //   this.user.displayName,
+  //   this.user.email,
+  //   this.user.photoURL,
+  //   this.user.uid,
+  //   '',
+  //   ''
+  // );
+  // alert('dang nhap thanh cong');
+  // }
+
+  // async signOut(){
+  //   try {
+  //     await this.auth.signOut();
+  //     alert("Signed out")
+  //   }
+  //   catch (err) {
+  //     alert("Can't sign out")
+  //   }
+  // }
 
   ID: any;
   PW: any;
 
   async loginNow() {
+    console.log(this.ID, this.PW);
     try {
-      return await this.userService.login(this.ID, this.PW).then((res) => {
-        console.log(res);
+      let temp = await this.userService.login(this.ID, this.PW);
+      console.log(temp)
+      if (temp) {
         this.router.navigate(['homeLogin']);
-        this.userService.user = this.user;        
-      });
-
-      
+        this.userService.user = temp;
+      } else {
+        this.router.navigate(['/login']);
+      }
     } catch (err) {
-      console.log(err);
+      alert('error');
     }
   }
 
