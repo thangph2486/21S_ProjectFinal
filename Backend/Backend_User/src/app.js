@@ -5,7 +5,7 @@ const cors = require("cors");
 const app = express();
 
 var admin = require("firebase-admin");
-
+app.use(bodyParser.json());
 var serviceAccount = require("./key.json");
 let db = "https://the-deck-of-card-default-rtdb.firebaseio.com";
 
@@ -257,5 +257,4 @@ app.get("/room/start", async (req, res) => {
   ).data();
   res.send(quiz);
 });
-
 module.exports = app;
