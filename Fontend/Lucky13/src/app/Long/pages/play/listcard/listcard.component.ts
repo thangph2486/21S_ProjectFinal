@@ -1,58 +1,60 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { Observable } from 'rxjs';
+import { Room } from 'src/app/models/room.model';
+import { User } from 'src/app/models/user.model';
 import { CardDataService } from 'src/app/services/card-data.service';
+import { CheckService } from 'src/app/services/check.service';
+import { DocumentService } from 'src/app/services/document.service';
 
 @Component({
   selector: 'app-listcard',
   templateUrl: './listcard.component.html',
-  styleUrls: ['./listcard.component.scss']
+  styleUrls: ['./listcard.component.scss'],
 })
-export class ListcardComponent implements OnInit {
-
-  constructor(public cardService: CardDataService) {}
+export class ListcardComponent implements OnInit, OnDestroy {
+  documents: Observable<string[]>;
+  currentDoc: string;
+  private _docSub: Subscription;
+  //dataGame: Observable<User>;
+  roomData: Observable<Room>;
+  constructor(public cardService: CardDataService, private documentService: DocumentService) { }
 
   ngOnInit(): void {
-
+    this.documents = this.documentService.documents;
+    //this.dataGame = this.documentService.gameData;
+    this.roomData = this.documentService.roomData;
+    this._docSub = this.documentService.currentDocument.subscribe(
+      doc => {
+        this.currentDoc = doc.id
+      }
+    );
   }
 
-  // arr = [0,1,2];
-  // getCards(arr){
-  //   for ( let i =0; i<arr.length;i++){
-  //     this.click(this.cardService.cards[i]);
-  //   }
-  // }
-  // i=-1
-  // removeCard(card){
-  //   if( this.i==-1){
-  //     // this.click(this.cards[i]);
-  //     // let remove = this.cards.splice(i,1);
-  //     console.log(this.cardService.cards.indexOf(card));
-  //   }
-  // }
-
-  // click(card:string){
-  //   const element = <HTMLElement> document.getElementsByClassName(card)[0];
-  //   element.style.marginBottom.valueOf() == '25px' ? element.style.marginBottom = '0px': element.style.marginBottom = '25px';
-  //   console.log(element.style.marginBottom.valueOf());
-  //   console.log(card);
-  // }
-
-  removeCard(){
-   for(let i=0;i<this.cardService.temp.length;i++){
-     let index =this.cardService.cards.indexOf(this.cardService.temp[i]);
-      this.cardService.cards.splice(index,1);
-   this.cardService.tempXuatCard.push(this.cardService.temp[i]);
-   }
-
-      this.cardService.temp.splice(0);
-      console.log(this.cardService.temp);
-      console.log(this.cardService.tempXuatCard);
-     console.log(this.cardService.cards);
-
+  ngOnDestroy() {
+    this._docSub.unsubscribe();
   }
 
+  sendCards() {
 
-  clearCard(){
-      this.cardService.tempXuatCard.splice(0);
-      console.log(this.cardService.tempXuatCard);
+    //Gui bai socket
+    
+    //neu socket tra ve true=>
+    if (this.cardService.inTurn == true) {
+      this.cardService.cardsViews = this.cardService.cardViewTemp
+      this.documentService.sendCard(this.cardService.cardsViews);
+      this.cardService.cardViewTemp = []  
+      }else{
+      alert("chua toi luot")
+    }
+
+  }
+  offTurn() {
+    this.documentService.quitTurn();
+    this.cardService.cardViewTemp = [] ;
+  }
+
+  newDoc() {
+    this.documentService.newDocument();
   }
 }

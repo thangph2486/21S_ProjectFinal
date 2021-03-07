@@ -5,7 +5,7 @@ const cors = require("cors");
 const app = express();
 
 var admin = require("firebase-admin");
-
+app.use(bodyParser.json());
 var serviceAccount = require("./key.json");
 let db = "https://the-deck-of-card-default-rtdb.firebaseio.com";
 
@@ -23,15 +23,15 @@ function init() {
 init();
 
 app.get("/check", async (req, res) => {
-  let temp = await admin.database().ref("room001").get()
+  let temp = await admin.database().ref("room001").get();
   console.log(temp);
-  res.send(temp)
+  res.send(temp);
 });
 
-app.post("/")
+app.post("/");
 
 app.get("/", async (req, res) => {
-  res.send("server is running")
+  res.send("server is running");
 });
 
 // app.post('/', async (req, res) => {
@@ -48,9 +48,7 @@ app.get("/", async (req, res) => {
 
 // })
 app.get("/user", async (req, res) => {
-  const {
-    uid
-  } = req.query;
+  const { uid } = req.query;
   try {
     let a = await admin.firestore().collection("user").doc(uid).get();
     if (!a.exists) {
@@ -62,14 +60,29 @@ app.get("/user", async (req, res) => {
     console.log(error);
   }
 });
+
+app.post("/login", async (req, res) => {
+  const { uid, password } = req.body;
+  try {
+    console.log(uid, password);
+    let a = await admin.firestore().collection("user").doc(uid).get();
+    console.log(a);
+    if (!a.exists) {
+      res.send(`${uid} has not exists`);
+    } else {
+      if (a.data().password == password) {
+        res.send(a.data());
+      } else {
+        res.send(false);
+      }
+    }
+  } catch (error) {
+    console.log(error);
+  }
+});
 app.post("/user", async (req, res) => {
-  const {
-    id,
-    displayName,
-    email,
-    photoURL
-  } = req.body;
-  console.log(id, displayName, email, photoURL);
+  const { id, displayName, email, photoURL, phone, password } = req.body;
+  console.log(id, displayName, email, photoURL, phone, password);
   try {
     let a = await admin.firestore().collection("user").doc(id).get();
     if (!a.exists) {
@@ -78,6 +91,8 @@ app.post("/user", async (req, res) => {
         displayName: displayName,
         email: email,
         photoURL: photoURL,
+        phone: phone,
+        password: password,
       });
       res.send(`${id} has been created`);
     } else {
@@ -88,9 +103,7 @@ app.post("/user", async (req, res) => {
   }
 });
 app.get("/room", async (req, res) => {
-  let {
-    owner
-  } = req.query;
+  let { owner } = req.query;
   let room = await admin.firestore().collection("rooms").doc(owner).get();
 
   try {
@@ -106,25 +119,20 @@ app.get("/room", async (req, res) => {
 });
 
 app.get("/roomRT", async (req, res) => {
-
-  let {rid} = req.query
-  console.log(rid)
+  let { rid } = req.query;
+  console.log(rid);
   try {
-    
-    let users = await admin.database().ref(rid+'/user').get()
-    res.send(users)
-    
-    
+    let users = await admin
+      .database()
+      .ref(rid + "/user")
+      .get();
+    res.send(users);
   } catch (error) {
     console.log(error);
   }
 });
 app.post("/room", async (req, res) => {
-  let {
-    category,
-    owner,
-    quantity
-  } = req.body;
+  let { category, owner, quantity } = req.body;
   let room = await admin.firestore().collection("rooms").doc(owner).get();
 
   if (room.exists) {
@@ -138,87 +146,87 @@ app.post("/room", async (req, res) => {
     status: false,
   };
   let dataRealTime = {
-    user: [''],
-    quiz: [{
+    user: [""],
+    quiz: [
+      {
         q1: false,
         user: "",
-        ans: ""
+        ans: "",
       },
       {
         q2: false,
         user: "",
-        ans: ""
+        ans: "",
       },
       {
         q3: false,
         user: "",
-        ans: ""
+        ans: "",
       },
       {
         q4: false,
         user: "",
-        ans: ""
+        ans: "",
       },
       {
         q5: false,
         user: "",
-        ans: ""
+        ans: "",
       },
       {
         q6: false,
         user: "",
-        ans: ""
+        ans: "",
       },
       {
         q7: false,
         user: "",
-        ans: ""
+        ans: "",
       },
       {
         q8: false,
         user: "",
-        ans: ""
+        ans: "",
       },
       {
         q9: false,
         user: "",
-        ans: ""
+        ans: "",
       },
       {
         q10: false,
         user: "",
-        ans: ""
+        ans: "",
       },
-    ]
-  }
+    ],
+  };
   try {
     await admin.firestore().collection("rooms").doc(owner).create(data);
-    await admin.database().ref(owner).set(dataRealTime)
+    await admin.database().ref(owner).set(dataRealTime);
     res.send("new room created");
   } catch (error) {
     console.log(error);
   }
 });
 
-
-
 app.put("/room/join", async (req, res) => {
   try {
-    let {
-      rid,
-      uid
-    } = req.body;
+    let { rid, uid } = req.body;
 
     let data = await admin.firestore().collection("rooms").doc(rid).get();
     if (data.exists) {
-      let user = await admin.database().ref(`${rid}/user/${uid}`).get()
-      if(!user.exists){
-        res.send('Khong thay')
+      let user = await admin.database().ref(`${rid}/user/${uid}`).get();
+      if (!user.exists) {
+        res.send("Khong thay");
       }
-      await admin.database().ref(rid+'/user').child(uid).set({
-        uid:uid
-      })
-      res.send('Da join')
+      await admin
+        .database()
+        .ref(rid + "/user")
+        .child(uid)
+        .set({
+          uid: uid,
+        });
+      res.send("Da join");
       //await admin.database().ref(rid+'/user').update(users)
       //res.send(`${uid} has joined`);
     }
@@ -229,10 +237,7 @@ app.put("/room/join", async (req, res) => {
 
 app.put("/room/injoin", async (req, res) => {
   try {
-    let {
-      id,
-      uid
-    } = req.body;
+    let { id, uid } = req.body;
     let data = await admin.firestore().collection("rooms").doc(id).get();
     let temp = data.data();
     console.log(temp);
@@ -245,14 +250,11 @@ app.put("/room/injoin", async (req, res) => {
 });
 
 app.get("/room/start", async (req, res) => {
-  let {
-    rid
-  } = req.query;
+  let { rid } = req.query;
   let data = (await admin.firestore().collection("room").doc(rid).get()).data();
   let quiz = (
     await admin.firestore().collection("quizs").doc(data.category).get()
   ).data();
   res.send(quiz);
 });
-
 module.exports = app;
