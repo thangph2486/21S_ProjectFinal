@@ -42,10 +42,10 @@ export class CardsComponent implements OnInit {
       this.cardService.cardViewTemp.push(this.card);
     }
     console.log(this.cardService.cardViewTemp)
-    let isValid =this.checkCard.isLegal(this.cardService.cardViewTemp)
-    if (isValid != 0) {
+    // let isValid =this.checkCard.isLegal(this.cardService.cardViewTemp)
+    // if (isValid != 0) {
       this.documentService.checkValid(this.cardService.cardViewTemp)
-    }
+    // }
     // for (let i = this.cardService.cardViewTemp.length; i < this.cardService.takCards.length; i++) {
     //   const element = <HTMLElement>document.getElementsByClassName(this.cardService.takCards[i])[0];
     //   if (element.style.marginBottom.valueOf() == '25px') {
