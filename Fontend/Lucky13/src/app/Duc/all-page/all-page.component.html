@@ -1,0 +1,65 @@
+<div class="card-container">
+    <div class="card card-small a" tabindex="0" [routerLink]="['/signup']" routerLinkActive="router-link-active">
+        <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+            <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" />
+        </svg>
+
+        <span>sign up scene</span>
+
+    </div>
+
+    <div class="card card-small" tabindex="0" [routerLink]="['/ConnectSocket']">
+        <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+            <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" />
+        </svg>
+
+        <span>Socket scene</span>
+    </div>
+
+    <div class="card card-small" tabindex="0" [routerLink]="['/aboutus']">
+        <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+            <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" />
+        </svg>
+
+        <span>About us scene</span>
+    </div>
+
+    <div class="card card-small" tabindex="0" [routerLink]="['/sigin']">
+        <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+            <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" />
+        </svg>
+
+        <span>Sign scene</span>
+    </div>
+
+    <div class="card card-small" tabindex="0" [routerLink]="['/home']">
+        <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+            <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" />
+        </svg>
+
+        <span>Home scene</span>
+    </div>
+
+    <div class="card card-small" tabindex="0" (click)="joinRoom()">
+        <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+            <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" />
+        </svg>
+
+        <span>Play scene</span>
+    </div>
+
+    <div class="card card-small" tabindex="0" [routerLink]="['/homeLogin']">
+        <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+            <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" />
+        </svg>
+
+        <span>HLogin scene</span>
+    </div>
+
+    <div (click)="createRoom()" class="card card-small" tabindex="0">
+
+
+        <span>CreateRoom</span>
+    </div>
+
+</div>

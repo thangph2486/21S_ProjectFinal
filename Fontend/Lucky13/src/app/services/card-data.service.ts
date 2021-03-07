@@ -1,23 +1,28 @@
 import { Injectable } from '@angular/core';
 import { Card } from '../models/card.model'
+import { Socket } from 'ngx-socket-io';
+import { Observable } from 'rxjs';
+import { User } from '../models/user.model';
+import { Room } from '../models/room.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CardDataService {
-
-  constructor() { }
-  fullCards = [
-    'Át♥', '02♥', '03♥', '04♥', '05♥', '06♥', '07♥', '08♥', '09♥', '10♥', 'JJ♥', 'QQ♥', 'KK♥',
-    'Át♦', '02♦', '03♦', '04♦', '05♦', '06♦', '07♦', '08♦', '09♦', '10♦', 'JJ♦', 'QQ♦', 'KK♦',
-    'Át♣', '02♣', '03♣', '04♣', '05♣', '06♣', '07♣', '08♣', '09♣', '10♣', 'JJ♣', 'QQ♣', 'KK♣',
-    'Át♠', '02♠', '03♠', '04♠', '05♠', '06♠', '07♠', '08♠', '09♠', '10♠', 'JJ♠', 'QQ♠', 'KK♠'
-]
-
-  temp  = [];
-  tempXuatCard = [];
-  cards=['Át♥', '02♥', '03♥', '04♥', '05♥', '06♥', '07♥', '08♥', '09♥', '10♥', 'JJ♥', 'QQ♥', 'KK♥'];
-
-  tempCards = [['02♦', '03♦', '04♣'],['02♣', '03♣', '04♦']];
+  constructor(public socket: Socket) { }
+  User = new User
+  Room = new Room
+  roomId = ""
+  isPlaying = false
+  cardCheck = false
+  cardsOfUser = []///Bài hiện tại của người chơi.
+  cardsViews = []//Tất cả bài đã đánh trong một vòng.
+  cardViewTemp = []//Bài người chơi chọn.
+  takCards = [] //Bài được gợi ý cho người chơi.
+  inTurn = false;
+  quitTurn = false;
+ getRandom(){
+  return Math.floor(Math.random() * 20);
+}
 
 }
