@@ -112,14 +112,14 @@ io.on("connection", (socket) => {
     socket.on('letStart', (roomID) => {
         try {
             let usersTemp = []
-            usersTemp = room[roomID].players
-            room[roomID].isPlaying = true;
+            usersTemp = room[roomID].players;
 
+            room[roomID].isPlaying = true;
             if (usersTemp[0] == socket.id && usersTemp.length > 1) {
                 io.of('/').in(roomID).clients(function (error, clients) {
                     let card = cardS.CARDS.slice()
                     let firstCard = []
-                    let cardTemp = cardS.dealCarts(cardS.shuffleArray(card), usersTemp.length)
+                    let cardTemp =  cardS.dealCarts(cardS.shuffleArray(card), usersTemp.length)
                     for (let i = 0; i < usersTemp.length; i++) {
                         users[usersTemp[i]].cards = cardTemp[i];
                         firstCard.push(cardTemp[i][0])
@@ -259,28 +259,10 @@ io.on("connection", (socket) => {
             let lastCardsOut = room[users[socket.id].inRoom].cardOut[lastCardOfOutNum];
             let isValid = checkCards.compareDeck(deck, lastCardsOut)
             socket.emit('isValid', isValid);
-
         }
         //console.log(check)
 
     })
-
-    socket.on("getDoc", docId => {
-        safeJoin(docId);
-        socket.emit("document", documents[docId]);
-    });
-
-    socket.on("addDoc", doc => {
-        documents[doc.id] = doc;
-        safeJoin(doc.id);
-        io.emit("documents", Object.keys(documents));
-        //socket.emit("document", doc);
-    });
-
-    socket.on("editDoc", doc => {
-        documents[doc.id] = doc;
-        socket.to(doc.id).emit("document", doc);
-    });
 
 
     socket.on("disconnect", function () {
@@ -315,10 +297,11 @@ io.on("connection", (socket) => {
         if (room[newRoomID] == null) {
             room[newRoomID] = {
                 roomId: newRoomID,
-                players: [socket.id],
+                players: [],
                 isPlaying: false,
                 playerFirstStart: '',
-                cardOut: []
+                cardOut: [],
+                firstCardOut: false
             }
             roomForAllUser[newRoomID] = {
                 roomId: newRoomID,
@@ -347,6 +330,6 @@ io.on("connection", (socket) => {
     a();
     io.emit("users", Object.keys(documents));
 });
-http.listen(3000, () => {
+http.listen(3000,'0.0.0.0', () => {
     console.log("listening on *:3000");
 });
